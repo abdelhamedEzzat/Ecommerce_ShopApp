@@ -10,11 +10,11 @@ ThemeData getApplicationTheme() {
 //appbar
 
       appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          color: ColorMangers.primaryColor,
-          elevation: AppSize.s8,
-          iconTheme: IconThemeData(color: ColorMangers.white, size: AppSize.s4))
-
+        centerTitle: true,
+        color: ColorMangers.primaryColor,
+        toolbarHeight: AppSize.s60,
+      )
+//color: ColorMangers.white, iconTheme: IconThemeData(size: AppSize.s8)
       //              textTheme: TextTheme(
       //       displayLarge: getSemiBoldStyle(
       //           color: ColorManager.darkGrey, fontSize: FontSize.s18),
