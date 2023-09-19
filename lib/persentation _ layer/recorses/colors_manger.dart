@@ -8,4 +8,5 @@ class ColorMangers {
   static const white = Colors.white;
   static const semiBlue = Color(0xff20ACFD);
   static const mentGray = Color(0xff3AC6A5);
+  static const yellowgold = Color(0xffFFDCBC);
 }

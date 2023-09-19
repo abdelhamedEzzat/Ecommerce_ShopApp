@@ -65,6 +65,8 @@ flutter:
     - assets/icons/add.png
     - assets/icons/bag.png
     - assets/images/logoo.png
+    - assets/images/solid_circle_icon.svg
+    - assets/images/embty_circle_icon.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

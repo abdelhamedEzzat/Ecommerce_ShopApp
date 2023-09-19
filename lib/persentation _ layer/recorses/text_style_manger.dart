@@ -11,7 +11,7 @@ TextStyle _textStyleManger(
 }
 
 getSemiBoldStyle({required double fontSize, required Color color}) {
-  return _textStyleManger(FontWightManager.bold, fontSize, color);
+  return _textStyleManger(FontWightManager.semiBold, fontSize, color);
 }
 
 getRegularStyle({required double fontSize, required Color color}) {
