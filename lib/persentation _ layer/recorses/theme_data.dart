@@ -1,6 +1,7 @@
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'text_style_manger.dart';
 
@@ -18,13 +19,35 @@ ThemeData getApplicationTheme() {
       ),
 
 //text theme
+
       textTheme: TextTheme(
-        titleLarge:
-            getSemiBoldStyle(color: ColorMangers.white, fontSize: FontSize.s20),
-        titleSmall:
-            getLightStyle(color: ColorMangers.white, fontSize: FontSize.s12),
+        titleLarge: getSemiBoldStyle(
+            color: ColorMangers.white, fontSize: FontSize.s18.sp),
+        //
+        bodyLarge: getSemiBoldStyle(
+            color: ColorMangers.black, fontSize: FontSize.s16.sp),
+        //
+        bodyMedium: getLightStyle(
+            fontSize: FontSize.s10.sp, color: ColorMangers.semiGray),
+        //
+        labelLarge: getRegularStyle(
+            fontSize: FontSize.s14.sp, color: ColorMangers.semiBlue),
+        //
+        labelMedium: getSemiBoldStyle(
+            fontSize: FontSize.s12.sp, color: ColorMangers.black),
+        //
+        labelSmall: getRegularStyle(
+            fontSize: FontSize.s10.sp, color: ColorMangers.semiGray),
+        //
         titleMedium: getLightStyle(
-            color: ColorMangers.yellowgold, fontSize: FontSize.s12),
+            color: ColorMangers.yellowgold, fontSize: FontSize.s12.sp),
+        //
+        bodySmall: getLightStyle(
+            fontSize: FontSize.s12.sp, color: ColorMangers.semiGray),
+        //
+        titleSmall:
+            getLightStyle(color: ColorMangers.white, fontSize: FontSize.s11.sp),
+        //
       ));
 }
 

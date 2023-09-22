@@ -1,22 +1,27 @@
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../persentation _ layer/model/models.dart';
 import '../../persentation _ layer/recorses/colors_manger.dart';
 
-Widget advertisementsUi(BuildContext context, AdvertisementModel adModel) {
+Widget advertisementsUi(
+  BuildContext context,
+  AdvertisementModel adModel,
+) {
   return
       //for container dicoration
       //
+
       Container(
     decoration: BoxDecoration(
         color: ColorMangers.buttonColor,
         borderRadius: BorderRadius.circular(AppSize.s10)),
-    margin: const EdgeInsets.only(
-        right: AppSize.s20,
-        left: AppSize.s20,
-        bottom: AppSize.s11,
-        top: AppSize.s21),
+    margin: EdgeInsets.only(
+        right: MediaQuery.of(context).size.width / AppSize.s19,
+        left: MediaQuery.of(context).size.width / AppSize.s19,
+        bottom: MediaQuery.of(context).size.height / AppSize.s45,
+        top: MediaQuery.of(context).size.height / AppSize.s45),
     padding: const EdgeInsets.only(left: AppSize.s30, right: AppSize.s18),
 
     //For Title  and subtitle and bottom title and image
@@ -24,8 +29,11 @@ Widget advertisementsUi(BuildContext context, AdvertisementModel adModel) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          width: SizeWidget.s180,
-          padding: const EdgeInsets.only(top: AppSize.s20, bottom: AppSize.s20),
+          width: SizeWidget.s165.w,
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.height / AppSize.s35,
+            bottom: MediaQuery.of(context).size.height / AppSize.s35,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -47,12 +55,13 @@ Widget advertisementsUi(BuildContext context, AdvertisementModel adModel) {
             ],
           ),
         ),
-        const SizedBox(
-          width: SizeWidget.s15,
+        SizedBox(
+          width: MediaQuery.of(context).size.width / SizeWidget.s22,
         ),
         Container(
-            height: SizeWidget.s144,
-            padding: const EdgeInsets.only(top: 6),
+            height: SizeWidget.s144.sp,
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 70),
             child: adModel.adImage)
       ],
     ),

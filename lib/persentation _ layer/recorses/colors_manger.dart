@@ -9,4 +9,7 @@ class ColorMangers {
   static const semiBlue = Color(0xff20ACFD);
   static const mentGray = Color(0xff3AC6A5);
   static const yellowgold = Color(0xffFFDCBC);
+  static const gray = Color(0xffEFEFEF);
+  static const backGroundColor = Color(0xfff6f6f6);
+  static const colorprodect = Color(0xfff4fcfe);
 }
