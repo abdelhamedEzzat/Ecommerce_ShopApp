@@ -1,7 +1,7 @@
-import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
 import 'package:flutter/material.dart';
 
-import '../../persentation _ layer/model/models.dart';
+import '../../../model/models.dart';
+import '../../../recorses/images_manger.dart';
 
 List<AdvertisementModel> adList = [
   AdvertisementModel(

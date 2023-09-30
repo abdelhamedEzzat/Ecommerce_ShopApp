@@ -31,17 +31,21 @@ class CategoryModel {
 
 // this for ProductInfo
 
-class ProductInfo {
+class ProductInfoModel {
   String title;
   String subTitle;
   String price;
   String addIcon;
+  Color colorProdectImage;
   String prodectImage;
-  ProductInfo({
+  void Function()? onTap;
+  ProductInfoModel({
     required this.title,
     required this.subTitle,
     required this.price,
     required this.addIcon,
+    required this.colorProdectImage,
     required this.prodectImage,
+    this.onTap,
   });
 }

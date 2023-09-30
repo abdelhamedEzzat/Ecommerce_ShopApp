@@ -67,6 +67,10 @@ flutter:
     - assets/images/logoo.png
     - assets/icons/mobile.png
     - assets/images/headPhoneImage.png
+    - assets/images/person.png
+    - assets/images/drawerlogo.png
+    - assets/images/heart.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

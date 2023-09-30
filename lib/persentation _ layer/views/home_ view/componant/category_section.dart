@@ -1,5 +1,6 @@
-import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:flutter/material.dart';
+
+import '../../../recorses/font_manger.dart';
 
 Widget categorySection(context,
     {required String sectionName, required String seeAll}) {
@@ -8,9 +9,11 @@ Widget categorySection(context,
       Expanded(
         child: Container(
           margin: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width / AppSize.s18,
-              right: MediaQuery.of(context).size.width / AppSize.s18,
-              bottom: MediaQuery.of(context).size.height / AppSize.s45),
+            left: MediaQuery.of(context).size.width / AppSize.s18,
+            right: MediaQuery.of(context).size.width / AppSize.s18,
+            bottom: MediaQuery.of(context).size.height / AppSize.s70,
+            // top: MediaQuery.of(context).size.height / AppSize.s100
+          ),
           width: double.infinity,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

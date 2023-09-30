@@ -1,6 +1,7 @@
 //this part for animation
-import 'package:ecommerce_shop_app/widgets/home_view_widget/list_ad.dart';
 import 'package:flutter/material.dart';
+
+import '../views/home_ view/componant/ad_list.dart';
 
 int durationSecond20 = 20;
 

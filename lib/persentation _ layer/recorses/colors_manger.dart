@@ -11,5 +11,7 @@ class ColorMangers {
   static const yellowgold = Color(0xffFFDCBC);
   static const gray = Color(0xffEFEFEF);
   static const backGroundColor = Color(0xfff6f6f6);
-  static const colorprodect = Color(0xfff4fcfe);
+  static const colorprodect = Color(0xffE8F6FB);
+  static const semiPink = Color(0xffFBF3E8);
+  static const starColor = Color(0xffFFC907);
 }

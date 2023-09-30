@@ -21,34 +21,42 @@ ThemeData getApplicationTheme() {
 //text theme
 
       textTheme: TextTheme(
-        titleLarge: getSemiBoldStyle(
-            color: ColorMangers.white, fontSize: FontSize.s18.sp),
-        //
-        bodyLarge: getSemiBoldStyle(
-            color: ColorMangers.black, fontSize: FontSize.s16.sp),
-        //
-        bodyMedium: getLightStyle(
-            fontSize: FontSize.s10.sp, color: ColorMangers.semiGray),
-        //
-        labelLarge: getRegularStyle(
-            fontSize: FontSize.s14.sp, color: ColorMangers.semiBlue),
-        //
-        labelMedium: getSemiBoldStyle(
-            fontSize: FontSize.s12.sp, color: ColorMangers.black),
-        //
-        labelSmall: getRegularStyle(
-            fontSize: FontSize.s10.sp, color: ColorMangers.semiGray),
-        //
-        titleMedium: getLightStyle(
-            color: ColorMangers.yellowgold, fontSize: FontSize.s12.sp),
-        //
-        bodySmall: getLightStyle(
-            fontSize: FontSize.s12.sp, color: ColorMangers.semiGray),
-        //
-        titleSmall:
-            getLightStyle(color: ColorMangers.white, fontSize: FontSize.s11.sp),
-        //
-      ));
+          titleLarge:
+              getSemiBoldStyle(color: ColorMangers.white, fontSize: 12.spMax),
+          //
+          bodyLarge: getSemiBoldStyle(
+              color: ColorMangers.black, fontSize: FontSize.s16.spMin),
+          //
+          bodyMedium: getLightStyle(
+              fontSize: FontSize.s10.spMin, color: ColorMangers.semiGray),
+          //
+          labelLarge: getRegularStyle(
+              fontSize: FontSize.s14.spMin, color: ColorMangers.semiBlue),
+          //
+          labelMedium: getSemiBoldStyle(
+              fontSize: FontSize.s11.spMin, color: ColorMangers.black),
+          //
+          labelSmall: getRegularStyle(
+              fontSize: FontSize.s8.spMin, color: ColorMangers.semiGray),
+          //
+          titleMedium: getLightStyle(
+              color: ColorMangers.yellowgold, fontSize: FontSize.s12.spMin),
+          //
+          bodySmall: getLightStyle(
+              fontSize: FontSize.s12.spMin, color: ColorMangers.semiGray),
+          //
+          titleSmall: getLightStyle(
+              color: ColorMangers.white, fontSize: FontSize.s11.spMin),
+
+          //
+
+          headlineMedium: getRegularStyle(
+              fontSize: FontSize.s12.spMin, color: ColorMangers.black),
+          //
+          headlineLarge: getRegularStyle(
+              fontSize: FontSize.s14.spMin, color: ColorMangers.white),
+          headlineSmall: getSemiBoldStyle(
+              fontSize: 20.spMin, color: ColorMangers.buttonColor)));
 }
 
 //        textTheme:

@@ -1,5 +1,5 @@
-import '../../persentation _ layer/model/models.dart';
-import '../../persentation _ layer/recorses/images_manger.dart';
+import '../../../model/models.dart';
+import '../../../recorses/images_manger.dart';
 
 List<CategoryModel> categoryList = [
   CategoryModel(
