@@ -8,7 +8,7 @@ import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_mang
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/componant/app_bar_widget.dart';
 
-import '../../../../widgets/componant_widgets/bottom_widget.dart';
+import '../../../main_app_view/componant_app_widgets/bottom_widget.dart';
 
 class MyCard extends StatefulWidget {
   const MyCard({super.key});
@@ -25,7 +25,7 @@ class _MyCardState extends State<MyCard> {
         // (For AppBar Title)
 
         Text(
-          Constatnt.myCard,
+          Constant.myCard,
           style: Theme.of(context).textTheme.headlineLarge,
         ),
 
@@ -48,7 +48,8 @@ class _MyCardState extends State<MyCard> {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom: 10.h, top: 5.h),
+                  margin:
+                      EdgeInsets.only(bottom: AppSize.s10.h, top: AppSize.s5.h),
                   // width: MediaQuery.of(context).size.width,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +61,8 @@ class _MyCardState extends State<MyCard> {
                       Expanded(
                           flex: 2,
                           child: Container(
-                            margin: EdgeInsets.only(left: 20.w, top: 20.h),
+                            margin: EdgeInsets.only(
+                                left: AppSize.s20.w, top: AppSize.s20.h),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,9 +92,16 @@ class _MyCardState extends State<MyCard> {
                                         onPressed: () {},
                                         icon: Icon(
                                           Icons.do_not_disturb_on_outlined,
+                                          //
+                                          // todo  fixed this mistake
+                                          //
                                           size: 25.spMin,
                                         )),
                                     Text(
+                                      //
+                                      //
+                                      //todo make a value when i create cubit
+
                                       "1",
                                       style:
                                           Theme.of(context).textTheme.bodyLarge,
@@ -101,6 +110,9 @@ class _MyCardState extends State<MyCard> {
                                       onPressed: () {},
                                       icon: Icon(
                                         Icons.add_circle_outline_outlined,
+                                        //
+                                        // todo  fixed this mistake
+                                        //
                                         size: 25.spMin,
                                       ),
                                     ),
@@ -117,7 +129,8 @@ class _MyCardState extends State<MyCard> {
                   color: ColorMangers.black,
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 10.h, top: 5.h),
+                  margin:
+                      EdgeInsets.only(bottom: AppSize.s10.h, top: AppSize.s5.h),
                   // width: MediaQuery.of(context).size.width,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +142,8 @@ class _MyCardState extends State<MyCard> {
                       Expanded(
                           flex: 2,
                           child: Container(
-                            margin: EdgeInsets.only(left: 20.w, top: 20.h),
+                            margin: EdgeInsets.only(
+                                left: AppSize.s20.w, top: AppSize.s20.h),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +167,7 @@ class _MyCardState extends State<MyCard> {
                                           .labelMedium,
                                     ),
                                     SizedBox(
-                                      width: 75.w,
+                                      width: AppSize.s75.w,
                                     ),
                                     IconButton(
                                         onPressed: () {},
@@ -190,21 +204,19 @@ class _MyCardState extends State<MyCard> {
           ),
           Expanded(
             flex: 2,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Column(children: [
                 Container(
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(bottom: 10, left: 2),
+                  padding: const EdgeInsets.only(
+                      bottom: AppSize.s10, left: AppSize.s2),
                   child: const Text(
-                    "Have a coupon code? enter here",
+                    Constant.haveAcoupon,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 40.h,
-                  // decoration: BoxDecoration(
-                  //     border: Border.all(),
-                  //     borderRadius: BorderRadius.circular(5)),
                   child: TextFormField(
                       decoration: InputDecoration(
                           fillColor: ColorMangers.gray,
@@ -219,7 +231,7 @@ class _MyCardState extends State<MyCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Subtotal:",
+                        Constant.subTotal,
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                       Text(
@@ -237,7 +249,7 @@ class _MyCardState extends State<MyCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Delivery Free:",
+                        Constant.deliveryFree,
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                       Text(
@@ -255,7 +267,7 @@ class _MyCardState extends State<MyCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Discount:",
+                        Constant.discount,
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                       Text(
@@ -282,7 +294,7 @@ class _MyCardState extends State<MyCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Total:",
+                        Constant.total,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Text(
@@ -294,7 +306,7 @@ class _MyCardState extends State<MyCard> {
                 ),
                 bottomWidget(
                     context: context,
-                    nameOfBottom: Constatnt.continueToCustomerDetilis)
+                    nameOfBottom: Constant.continueToCustomerDetilis)
               ]),
             ),
           ),

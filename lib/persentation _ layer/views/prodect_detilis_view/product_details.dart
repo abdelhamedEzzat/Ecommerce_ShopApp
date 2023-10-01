@@ -5,7 +5,7 @@ import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/c
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../widgets/componant_widgets/bottom_widget.dart';
+import '../../../main_app_view/componant_app_widgets/bottom_widget.dart';
 import '../../model/models.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -130,7 +130,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ),
                   ],
                 ),
-                bottomWidget(context: context, nameOfBottom: Constatnt.addItem)
+                bottomWidget(context: context, nameOfBottom: Constant.addItem)
               ],
             ),
           )),

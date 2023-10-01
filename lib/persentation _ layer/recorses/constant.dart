@@ -1,10 +1,15 @@
-class Constatnt {
+class Constant {
   static const sectionHotSales = "Hot Sales";
   static const featuredProducts = "FeaturedProducts";
   static const seeALL = "See all";
   static const addItem = "Add item to bag";
   static const continueToCustomerDetilis = "Continue to Checkout";
   static const myCard = "My Card";
+  static const haveAcoupon = "Have a coupon code? enter here";
+  static const subTotal = "Subtotal:";
+  static const deliveryFree = "Delivery Free:";
+  static const discount = "Discount:";
+  static const total = "Total:";
 }
 
 class DrawerConstans {

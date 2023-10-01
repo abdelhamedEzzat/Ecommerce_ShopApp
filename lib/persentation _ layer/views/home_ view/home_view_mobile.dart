@@ -54,7 +54,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
           height: SizeWidget.s10.h,
         ),
         categorySection(context,
-            sectionName: Constatnt.sectionHotSales, seeAll: Constatnt.seeALL),
+            sectionName: Constant.sectionHotSales, seeAll: Constant.seeALL),
         Container(
           margin: EdgeInsets.only(
             left: 20.w,
@@ -66,7 +66,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
           height: 15.h,
         ),
         categorySection(context,
-            sectionName: Constatnt.featuredProducts, seeAll: Constatnt.seeALL),
+            sectionName: Constant.featuredProducts, seeAll: Constant.seeALL),
         Container(
           margin: EdgeInsets.only(
             left: 20.w,

@@ -5,10 +5,10 @@ import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_mang
 import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/componant/app_bar_widget.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/home_view_mobile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'persentation _ layer/recorses/font_manger.dart';
-import 'persentation _ layer/recorses/images_manger.dart';
-import 'persentation _ layer/views/home_ view/Home_views_desktop.dart';
-import 'persentation _ layer/views/home_ view/componant/drawer_widget.dart';
+import '../../persentation _ layer/recorses/font_manger.dart';
+import '../../persentation _ layer/recorses/images_manger.dart';
+import '../../persentation _ layer/views/home_ view/Home_views_desktop.dart';
+import '../../persentation _ layer/views/home_ view/componant/drawer_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
