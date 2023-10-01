@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-AppBar appBarWidget({required Widget title}) {
+AppBar appBarWidget(Widget title, [icon]) {
   return AppBar(
     elevation: 0,
+    leading: icon,
     title: title,
     actions: [
       Center(

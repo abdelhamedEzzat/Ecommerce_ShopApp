@@ -61,16 +61,18 @@ Widget buildMenuItems(
   return Container(
       padding: const EdgeInsets.all(24),
       child: Column(children: [
-//
-//   this For trending list
-//
+        //
+        //   this For trending list
+        //
 
         trendingWidget(context),
+
         //
         //   this For topCategories
         //
 
         topCategories(context),
+
         //
         //  this  for programsAndFeatures
         //
@@ -78,15 +80,15 @@ Widget buildMenuItems(
         programsAndFeatures(context),
 
         //
-// this for drawer logo
-//
+        // this for drawer logo
+        //
 
         drawerLogo(context),
       ]));
 }
 
 //
-//
+//  this for trending list
 //
 
 Widget trendingWidget(BuildContext context) {
@@ -139,6 +141,10 @@ Widget trendingWidget(BuildContext context) {
     ],
   );
 }
+
+//
+//  this for programsAndFeatures list
+//
 
 Widget programsAndFeatures(BuildContext context) {
   return ExpansionTile(
@@ -230,6 +236,10 @@ Widget programsAndFeatures(BuildContext context) {
   );
 }
 
+//
+//  this for topCategories list
+//
+
 Widget topCategories(BuildContext context) {
   return ExpansionTile(
     childrenPadding: const EdgeInsets.only(left: 9),
@@ -306,6 +316,10 @@ Widget topCategories(BuildContext context) {
     ],
   );
 }
+
+//
+//  this for drawerLogo list
+//
 
 Widget drawerLogo(BuildContext context) {
   return Container(

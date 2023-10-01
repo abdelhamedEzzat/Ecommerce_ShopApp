@@ -3,6 +3,8 @@ class Constatnt {
   static const featuredProducts = "FeaturedProducts";
   static const seeALL = "See all";
   static const addItem = "Add item to bag";
+  static const continueToCustomerDetilis = "Continue to Checkout";
+  static const myCard = "My Card";
 }
 
 class DrawerConstans {

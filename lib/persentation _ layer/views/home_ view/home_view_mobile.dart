@@ -1,12 +1,11 @@
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/constant.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
-import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/componant/prodect_info_wdget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'componant/advertisements_widget.dart';
 import 'componant/category_section.dart';
 import 'componant/category_widget.dart';
+import 'componant/prodect_info_list.dart';
 
 class HomeViewMobile extends StatefulWidget {
   const HomeViewMobile({

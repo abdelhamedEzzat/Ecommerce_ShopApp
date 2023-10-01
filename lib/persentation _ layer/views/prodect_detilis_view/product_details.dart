@@ -1,4 +1,3 @@
-import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/constant.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/values.dart';
@@ -6,6 +5,7 @@ import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/c
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../widgets/componant_widgets/bottom_widget.dart';
 import '../../model/models.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -23,10 +23,20 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(
-          title: Text(
-        "Product Details",
-        style: Theme.of(context).textTheme.headlineLarge,
-      )),
+        // (For AppBar Title)
+
+        Text(
+          "Product Details",
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+
+        // (For AppBar Leading )
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back_ios_new)),
+      ),
       body: Column(
         children: [
           productImageAndBackgroundColor(context),
@@ -43,7 +53,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Expanded(
         child: Container(
       width: MediaQuery.of(context).size.width,
-      //color: widget.prodects.colorProdectImage,
+      color: widget.prodects.colorProdectImage,
       child: Image.asset(widget.prodects.prodectImage),
     ));
   }
@@ -120,25 +130,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ),
                   ],
                 ),
-                Container(
-                    decoration: BoxDecoration(
-                        color: ColorMangers.buttonColor,
-                        borderRadius: BorderRadius.circular(15)),
-                    height: 55.h,
-                    width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.symmetric(horizontal: 38.w),
-                    child: Center(
-                      child: Text(
-                        Constatnt.addItem,
-                        style: Theme.of(context).textTheme.headlineLarge,
-                      ),
-                    )),
+                bottomWidget(context: context, nameOfBottom: Constatnt.addItem)
               ],
             ),
           )),
     );
   }
 }
+
+
 
  
 

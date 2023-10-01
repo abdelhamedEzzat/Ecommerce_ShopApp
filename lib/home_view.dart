@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
         backgroundColor: ColorMangers.backGroundColor,
         appBar: appBarWidget(
-          title: Image.asset(
+          Image.asset(
             AssetsImages.logoImage,
             height: SizeWidget.s24.h,
             width: SizeWidget.s104.w,

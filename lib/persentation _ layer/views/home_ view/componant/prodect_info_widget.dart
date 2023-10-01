@@ -2,34 +2,13 @@ import 'package:ecommerce_shop_app/persentation%20_%20layer/model/models.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
-import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/componant/prodect_info_list.dart';
-import 'package:ecommerce_shop_app/persentation%20_%20layer/views/prodect_detilis_view/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //
-// This is List View Builder And prodectInfoWidget for Hot Salaes
+//  Widget function  for HotSalesProducts
 //
-
-listViewBuilderOFProdectInfoForHotSales() {
-  return GridView.builder(
-      shrinkWrap: true,
-      primary: false,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, crossAxisSpacing: 20, mainAxisExtent: 270),
-      itemCount: 2,
-      itemBuilder: (BuildContext context, int index) {
-        return prodectInfoWidgetForHotSales(
-            context, productInfoLISTForHotSales[index], press: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) =>
-                ProductDetails(prodects: productInfoLISTForHotSales[index]),
-          ));
-        });
-      });
-}
-
+//
 Widget prodectInfoWidgetForHotSales(
     BuildContext context, ProductInfoModel productInfo,
     {required void Function()? press}) {
@@ -61,6 +40,9 @@ Widget prodectInfoWidgetForHotSales(
   );
 }
 
+//  Widget function  for imageHotSalesProducts
+//
+
 Widget imageInfoForHotSales(
     BuildContext context, ProductInfoModel productInfo) {
   return Expanded(
@@ -78,6 +60,10 @@ Widget imageInfoForHotSales(
   );
 }
 
+//
+//  Widget function  for titleHotSalesProducts
+//
+
 Widget titleinfoForHotSales(
     BuildContext context, ProductInfoModel productInfo) {
   return Container(
@@ -94,6 +80,10 @@ Widget titleinfoForHotSales(
   );
 }
 
+//
+//  Widget function  for subtitleHotSalesProducts
+//
+
 Widget subTilteinfoForHotSales(
     BuildContext context, ProductInfoModel productInfo) {
   return Container(
@@ -108,6 +98,10 @@ Widget subTilteinfoForHotSales(
   );
 }
 
+//
+//  Widget function  for priceAndaddHotSalesProducts
+//
+
 Widget priceAndaddIconForHotSales(
     BuildContext context, ProductInfoModel productInfo) {
   return Row(
@@ -119,7 +113,7 @@ Widget priceAndaddIconForHotSales(
             bottom: 20.h,
             right: MediaQuery.of(context).size.width / AppSize.s12),
         child: Text(
-          "\$199.99",
+          productInfo.price,
           style: Theme.of(context).textTheme.labelMedium,
         ),
       ),
@@ -135,32 +129,16 @@ Widget priceAndaddIconForHotSales(
 }
 
 //
-// This is List View Builder And prodectInfoWidget for Featured Products
 //
-
-listViewBuilderForFeaturedProducts() {
-  return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
-        mainAxisExtent: 270,
-      ),
-      shrinkWrap: true,
-      itemCount: productInfoLISTForFeaturedProducts.length,
-      itemBuilder: (BuildContext context, int index) {
-        return prodectInfoWidgetForFeaturedProducts(
-            context, productInfoLISTForFeaturedProducts[index]);
-      });
-}
+//  Widget function  for FeaturedProducts
+//
+//
 
 Widget prodectInfoWidgetForFeaturedProducts(
     BuildContext context, ProductInfoModel productInfo) {
   return Container(
       height: 200.h,
       color: ColorMangers.white,
-      // color: Colors.blueAccent,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -178,12 +156,16 @@ Widget prodectInfoWidgetForFeaturedProducts(
           ]));
 }
 
+//
+//  Widget function  for  image FeaturedProducts
+//
+
 Widget imageInfoforFeaturedProducts(
     BuildContext context, ProductInfoModel productInfo) {
   return Expanded(
     flex: 2,
     child: Container(
-      color: ColorMangers.semiPink,
+      color: productInfo.colorProdectImage,
       margin: EdgeInsets.only(
           top: AppSize.s4.h,
           left: AppSize.s4.w,
@@ -194,6 +176,10 @@ Widget imageInfoforFeaturedProducts(
     ),
   );
 }
+
+//
+//  Widget function  for  title FeaturedProducts
+//
 
 Widget titleInfoforFeaturedProducts(
     BuildContext context, ProductInfoModel productInfo) {
@@ -210,6 +196,10 @@ Widget titleInfoforFeaturedProducts(
   );
 }
 
+//
+//  Widget function  for  subTitle FeaturedProducts
+//
+
 Widget subTilteInfoForFeaturedProducts(
     BuildContext context, ProductInfoModel productInfo) {
   return Container(
@@ -224,6 +214,10 @@ Widget subTilteInfoForFeaturedProducts(
   );
 }
 
+//
+//  Widget function  for  priceAndAddIcon FeaturedProducts
+//
+
 Widget priceAndAddIconForFeaturedProducts(
     BuildContext context, ProductInfoModel productInfo) {
   return Row(
@@ -235,7 +229,7 @@ Widget priceAndAddIconForFeaturedProducts(
             bottom: 20.h,
             right: MediaQuery.of(context).size.width / AppSize.s12),
         child: Text(
-          "\$199.99",
+          productInfo.price,
           style: Theme.of(context).textTheme.labelMedium,
         ),
       ),

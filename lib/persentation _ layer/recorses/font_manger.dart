@@ -63,6 +63,7 @@ class AppSize {
   static const double s70 = 70.0;
   static const double s80 = 80.0;
   static const double s90 = 90.0;
+  static const double s100 = 100.0;
   static const double s120 = 120.0;
 }
 
@@ -82,6 +83,8 @@ class SizeWidget {
   static const double s22 = 22.0;
   static const double s24 = 24.0;
   static const double s29 = 29.0;
+  static const double s75 = 75.0;
+  static const double s100 = 100.0;
   static const double s104 = 104.0;
   static const double s144 = 144.0;
   static const double s165 = 165.0;
