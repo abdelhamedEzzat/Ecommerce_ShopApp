@@ -23,24 +23,25 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorMangers.backGroundColor,
-        appBar: appBarWidget(
-          Image.asset(
-            AssetsImages.logoImage,
-            height: SizeWidget.s24.h,
-            width: SizeWidget.s104.w,
-          ),
+      backgroundColor: ColorMangers.backGroundColor,
+      appBar: appBarWidget(
+        Image.asset(
+          AssetsImages.logoImage,
+          height: SizeWidget.s24.h,
+          width: SizeWidget.s104.w,
         ),
-        drawer: const DrawerClass(),
-        body: LayoutBuilder(
-          builder: (context, BoxConstraints constraints) {
-            print(constraints.maxWidth.toInt());
-            if (constraints.maxWidth.toInt() <= 600) {
-              return const HomeViewMobile();
-            } else {
-              return const homeViewDesktop();
-            }
-          },
-        ));
+      ),
+      drawer: const DrawerClass(),
+      body: LayoutBuilder(
+        builder: (context, BoxConstraints constraints) {
+          print(constraints.maxWidth.toInt());
+          if (constraints.maxWidth.toInt() <= 600) {
+            return const HomeViewMobile();
+          } else {
+            return const homeViewDesktop();
+          }
+        },
+      ),
+    );
   }
 }

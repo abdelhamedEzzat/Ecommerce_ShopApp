@@ -34,18 +34,27 @@ class CategoryModel {
 class ProductInfoModel {
   String title;
   String subTitle;
-  String price;
-  String addIcon;
-  Color colorProdectImage;
+  double price;
+  String? addIcon;
+  int colorProdectImage;
   String prodectImage;
   void Function()? onTap;
   ProductInfoModel({
     required this.title,
     required this.subTitle,
     required this.price,
-    required this.addIcon,
     required this.colorProdectImage,
     required this.prodectImage,
     this.onTap,
+    this.addIcon,
   });
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'subTitle': subTitle,
+      'price': price,
+      'prodectImage': prodectImage,
+      'colorProdectImage': colorProdectImage,
+    };
+  }
 }

@@ -1,17 +1,24 @@
+import 'package:ecommerce_shop_app/cubit/home_view_cubit.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/model/models.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
+import 'package:ecommerce_shop_app/persentation%20_%20layer/views/my_cart/my_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'prodect_info_list.dart';
 
 //
 //  Widget function  for HotSalesProducts
 //
 //
 Widget prodectInfoWidgetForHotSales(
-    BuildContext context, ProductInfoModel productInfo,
-    {required void Function()? press}) {
+  BuildContext context,
+  ProductInfoModel productInfo, {
+  required void Function()? press,
+  // required void Function()? onPressonIcon(),
+}) {
   return GestureDetector(
     onTap: press,
     child: Container(
@@ -31,7 +38,10 @@ Widget prodectInfoWidgetForHotSales(
                     children: [
                       titleinfoForHotSales(context, productInfo),
                       subTilteinfoForHotSales(context, productInfo),
-                      priceAndaddIconForHotSales(context, productInfo),
+                      priceAndaddIconForHotSales(
+                        context,
+                        productInfo,
+                      ),
                     ],
                   ),
                 ),
@@ -48,7 +58,7 @@ Widget imageInfoForHotSales(
   return Expanded(
     flex: 2,
     child: Container(
-      color: productInfo.colorProdectImage,
+      color: Color(productInfo.colorProdectImage),
       margin: EdgeInsets.only(
           top: AppSize.s4.h,
           left: AppSize.s4.w,
@@ -103,7 +113,9 @@ Widget subTilteinfoForHotSales(
 //
 
 Widget priceAndaddIconForHotSales(
-    BuildContext context, ProductInfoModel productInfo) {
+  BuildContext context,
+  ProductInfoModel productInfo,
+) {
   return Row(
     children: [
       Container(
@@ -112,14 +124,30 @@ Widget priceAndaddIconForHotSales(
         margin: EdgeInsets.only(
             bottom: 20.h,
             right: MediaQuery.of(context).size.width / AppSize.s12),
-        child: Text(
-          productInfo.price,
-          style: Theme.of(context).textTheme.labelMedium,
+        child: Row(
+          children: [
+            Text(
+              "\$",
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+            Text(
+              productInfo.price.toString(),
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+          ],
         ),
       ),
       Expanded(
         child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppCubit.get(context).insertProduct(productInfo);
+              AppCubit.get(context).getAllProducts(productInfo);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => MyCard(),
+                ),
+              );
+            },
             icon: Image.asset(
               AssetsImages.addIcon,
             )),
@@ -165,7 +193,7 @@ Widget imageInfoforFeaturedProducts(
   return Expanded(
     flex: 2,
     child: Container(
-      color: productInfo.colorProdectImage,
+      color: Color(productInfo.colorProdectImage),
       margin: EdgeInsets.only(
           top: AppSize.s4.h,
           left: AppSize.s4.w,
@@ -228,9 +256,17 @@ Widget priceAndAddIconForFeaturedProducts(
         margin: EdgeInsets.only(
             bottom: 20.h,
             right: MediaQuery.of(context).size.width / AppSize.s12),
-        child: Text(
-          productInfo.price,
-          style: Theme.of(context).textTheme.labelMedium,
+        child: Row(
+          children: [
+            Text(
+              "\$",
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+            Text(
+              productInfo.price.toString(),
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+          ],
         ),
       ),
       Expanded(

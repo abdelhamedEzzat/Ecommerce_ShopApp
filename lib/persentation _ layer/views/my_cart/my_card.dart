@@ -1,20 +1,26 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:ecommerce_shop_app/cubit/home_view_cubit.dart';
+import 'package:ecommerce_shop_app/cubit/home_view_state.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/constant.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/colors_manger.dart';
-import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/images_manger.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/views/home_%20view/componant/app_bar_widget.dart';
 
 import '../../../main_app_view/componant_app_widgets/bottom_widget.dart';
+import '../../model/models.dart';
 
 class MyCard extends StatefulWidget {
-  const MyCard({super.key});
+  const MyCard({
+    super.key,
+  });
 
   @override
   State<MyCard> createState() => _MyCardState();
+  // final ProductInfoModel product;
 }
 
 class _MyCardState extends State<MyCard> {
@@ -40,280 +46,245 @@ class _MyCardState extends State<MyCard> {
         //
         //
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Expanded(
-            flex: 2,
-            child: Column(
-              children: [
-                Container(
-                  margin:
-                      EdgeInsets.only(bottom: AppSize.s10.h, top: AppSize.s5.h),
-                  // width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                          child: Container(
-                              height: SizeWidget.s100.h,
-                              child: Image.asset(AssetsImages.headPhoneImage))),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            margin: EdgeInsets.only(
-                                left: AppSize.s20.w, top: AppSize.s20.h),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "titletitletitle",
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
-                                ),
-                                Text(
-                                  'sub title',
-                                  style: Theme.of(context).textTheme.labelSmall,
-                                ),
-                                Container(
-                                    child: Row(
-                                  children: [
-                                    Text(
-                                      "450",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .labelMedium,
-                                    ),
-                                    SizedBox(
-                                      width: SizeWidget.s75.w,
-                                    ),
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.do_not_disturb_on_outlined,
-                                          //
-                                          // todo  fixed this mistake
-                                          //
-                                          size: 25.spMin,
-                                        )),
-                                    Text(
-                                      //
-                                      //
-                                      //todo make a value when i create cubit
+      body: BlocConsumer<AppCubit, AppState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          if (state is AppGetDataBaseState) {
+            final products = state.products;
 
-                                      "1",
-                                      style:
-                                          Theme.of(context).textTheme.bodyLarge,
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.add_circle_outline_outlined,
-                                        //
-                                        // todo  fixed this mistake
-                                        //
-                                        size: 25.spMin,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                              ],
-                            ),
-                          ))
-                    ],
+            // Now you can use the 'products' list to update your UI
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: ListView.builder(
+                      itemCount: products.length,
+                      itemBuilder: (context, index) {
+                        final product = products[index];
+                        return cardList(
+                          context: context,
+                          prodectInWidget: product,
+                        );
+                      },
+                    ),
                   ),
-                ),
-                const Divider(
-                  thickness: 0.5,
-                  color: ColorMangers.black,
-                ),
-                Container(
-                  margin:
-                      EdgeInsets.only(bottom: AppSize.s10.h, top: AppSize.s5.h),
-                  // width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                          child: Container(
-                              height: 100.h,
-                              child: Image.asset(AssetsImages.headPhoneImage))),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            margin: EdgeInsets.only(
-                                left: AppSize.s20.w, top: AppSize.s20.h),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "titletitletitle",
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
-                                ),
-                                Text(
-                                  'sub title',
-                                  style: Theme.of(context).textTheme.labelSmall,
-                                ),
-                                Container(
-                                    child: Row(
-                                  children: [
-                                    Text(
-                                      "450",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .labelMedium,
-                                    ),
-                                    SizedBox(
-                                      width: AppSize.s75.w,
-                                    ),
-                                    IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.do_not_disturb_on_outlined,
-                                          size: 25.spMin,
-                                        )),
-                                    Text(
-                                      "1",
-                                      style:
-                                          Theme.of(context).textTheme.bodyLarge,
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.add_circle_outline_outlined,
-                                        size: 25.spMin,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                              ],
-                            ),
-                          ))
-                    ],
+                  Expanded(
+                    flex: 2,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.only(
+                              bottom: AppSize.s10, left: AppSize.s2),
+                          child: const Text(
+                            Constant.haveAcoupon,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40.h,
+                          child: TextFormField(
+                              decoration: InputDecoration(
+                                  fillColor: ColorMangers.gray,
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5)))),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 10.h,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Constant.subTotal,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                              Text(
+                                "11150",
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 10.h,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Constant.deliveryFree,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                              Text(
+                                "11",
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: 10.h,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Constant.discount,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                              Text(
+                                "5 %",
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          child: CustomPaint(
+                            size: Size(MediaQuery.of(context).size.width,
+                                1), // Adjust the size as needed
+                            painter: DashedLinePainter(), // Custom painter
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            bottom: 10.h,
+                            top: 5,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Constant.total,
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
+                              ),
+                              Text(
+                                "\,458.50",
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
+                              ),
+                            ],
+                          ),
+                        ),
+                        bottomWidget(
+                            context: context,
+                            nameOfBottom: Constant.continueToCustomerDetilis)
+                      ]),
+                    ),
                   ),
-                ),
-                const Divider(
-                  thickness: 0.5,
-                  color: ColorMangers.black,
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Column(children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  padding: const EdgeInsets.only(
-                      bottom: AppSize.s10, left: AppSize.s2),
-                  child: const Text(
-                    Constant.haveAcoupon,
-                  ),
-                ),
-                SizedBox(
-                  height: 40.h,
-                  child: TextFormField(
-                      decoration: InputDecoration(
-                          fillColor: ColorMangers.gray,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5)))),
-                ),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 10.h,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Constant.subTotal,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      Text(
-                        "11150",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 10.h,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Constant.deliveryFree,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      Text(
-                        "11",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 10.h,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Constant.discount,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      Text(
-                        "5 %",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: CustomPaint(
-                    size: Size(MediaQuery.of(context).size.width,
-                        1), // Adjust the size as needed
-                    painter: DashedLinePainter(), // Custom painter
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(
-                    bottom: 10.h,
-                    top: 5,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Constant.total,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                      Text(
-                        "\$4,458.50",
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                ),
-                bottomWidget(
-                    context: context,
-                    nameOfBottom: Constant.continueToCustomerDetilis)
-              ]),
-            ),
-          ),
-        ]),
+                ],
+              ),
+            );
+          } else {
+            // Handle other states or return a loading indicator
+            return CircularProgressIndicator();
+          }
+        },
       ),
     );
   }
+}
+
+Widget cardList(
+    {required ProductInfoModel prodectInWidget,
+    required BuildContext context}) {
+  return Column(
+    children: [
+      Container(
+        margin: EdgeInsets.only(bottom: AppSize.s10.h, top: AppSize.s5.h),
+        // width: MediaQuery.of(context).size.width,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+                child: Container(
+                    height: SizeWidget.s100.h,
+                    child: Image.asset(prodectInWidget.prodectImage))),
+            Expanded(
+                flex: 2,
+                child: Container(
+                  margin:
+                      EdgeInsets.only(left: AppSize.s20.w, top: AppSize.s20.h),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        prodectInWidget.title,
+                        style: Theme.of(context as BuildContext)
+                            .textTheme
+                            .labelMedium,
+                      ),
+                      Text(
+                        prodectInWidget.subTitle,
+                        style: Theme.of(context as BuildContext)
+                            .textTheme
+                            .labelSmall,
+                      ),
+                      Container(
+                          child: Row(
+                        children: [
+                          Text(
+                            prodectInWidget.price.toString(),
+                            style: Theme.of(context as BuildContext)
+                                .textTheme
+                                .labelMedium,
+                          ),
+                          SizedBox(
+                            width: SizeWidget.s70.w,
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.do_not_disturb_on_outlined,
+                                //
+                                // todo  fixed this mistake
+                                //
+                                size: 25.spMin,
+                              )),
+                          Text(
+                            //
+                            //
+                            //todo make a value when i create cubit
+
+                            "1",
+                            style: Theme.of(context as BuildContext)
+                                .textTheme
+                                .bodyLarge,
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.add_circle_outline_outlined,
+                              //
+                              // todo  fixed this mistake
+                              //
+                              size: 25.spMin,
+                            ),
+                          ),
+                        ],
+                      )),
+                    ],
+                  ),
+                ))
+          ],
+        ),
+      ),
+      const Divider(
+        thickness: 0.5,
+        color: ColorMangers.black,
+      ),
+    ],
+  );
 }
 
 class DashedLinePainter extends CustomPainter {

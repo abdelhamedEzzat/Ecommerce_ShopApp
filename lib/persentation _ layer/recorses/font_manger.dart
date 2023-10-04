@@ -85,6 +85,7 @@ class SizeWidget {
   static const double s22 = 22.0;
   static const double s24 = 24.0;
   static const double s29 = 29.0;
+  static const double s70 = 70.0;
   static const double s75 = 75.0;
   static const double s100 = 100.0;
   static const double s104 = 104.0;

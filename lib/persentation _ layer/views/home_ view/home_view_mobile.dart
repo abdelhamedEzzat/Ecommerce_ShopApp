@@ -1,6 +1,9 @@
+import 'package:ecommerce_shop_app/cubit/home_view_cubit.dart';
+import 'package:ecommerce_shop_app/cubit/home_view_state.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/constant.dart';
 import 'package:ecommerce_shop_app/persentation%20_%20layer/recorses/font_manger.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'componant/advertisements_widget.dart';
 import 'componant/category_section.dart';
@@ -36,45 +39,53 @@ class HomeViewMobile extends StatefulWidget {
 class _HomeViewMobileState extends State<HomeViewMobile> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(children: [
-        SizedBox(
-          height: SizeWidget.s130.h,
-          child: listViewAdvertisementsWidget(context),
-        ),
-        SizedBox(
-          height: SizeWidget.s10.h,
-        ),
-        Container(
-          margin: EdgeInsets.only(left: 24.w),
-          height: SizeWidget.s20.h,
-          child: listViewcategoryWidget(),
-        ),
-        SizedBox(
-          height: SizeWidget.s10.h,
-        ),
-        categorySection(context,
-            sectionName: Constant.sectionHotSales, seeAll: Constant.seeALL),
-        Container(
-          margin: EdgeInsets.only(
-            left: 20.w,
-            right: 20.w,
-          ),
-          child: listViewBuilderOFProdectInfoForHotSales(),
-        ),
-        SizedBox(
-          height: 15.h,
-        ),
-        categorySection(context,
-            sectionName: Constant.featuredProducts, seeAll: Constant.seeALL),
-        Container(
-          margin: EdgeInsets.only(
-            left: 20.w,
-            right: 20.w,
-          ),
-          child: listViewBuilderForFeaturedProducts(),
-        )
-      ]),
+    return BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: Column(children: [
+            SizedBox(
+              height: SizeWidget.s130.h,
+              child: listViewAdvertisementsWidget(context),
+            ),
+            SizedBox(
+              height: SizeWidget.s10.h,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 24.w),
+              height: SizeWidget.s20.h,
+              child: listViewcategoryWidget(),
+            ),
+            SizedBox(
+              height: SizeWidget.s10.h,
+            ),
+            categorySection(context,
+                sectionName: Constant.sectionHotSales, seeAll: Constant.seeALL),
+            Container(
+              margin: EdgeInsets.only(
+                left: 20.w,
+                right: 20.w,
+              ),
+              child: listViewBuilderOFProdectInfoForHotSales(),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            categorySection(context,
+                sectionName: Constant.featuredProducts,
+                seeAll: Constant.seeALL),
+            Container(
+              margin: EdgeInsets.only(
+                left: 20.w,
+                right: 20.w,
+              ),
+              child: listViewBuilderForFeaturedProducts(),
+            )
+          ]),
+        );
+      },
     );
   }
 }
