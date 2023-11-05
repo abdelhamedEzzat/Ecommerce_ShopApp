@@ -19,13 +19,19 @@ Widget categorySection(context,
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               sectionName,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .copyWith(color: Theme.of(context).colorScheme.onSurface),
             ),
             GestureDetector(
               onTap: () {},
               child: Text(
                 seeAll,
-                style: Theme.of(context).textTheme.labelLarge,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall!
+                    .copyWith(color: Theme.of(context).colorScheme.secondary),
               ),
             ),
           ]),

@@ -56,13 +56,13 @@ ThemeData theme() {
         fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
-      headlineSmall: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 14,
-      ),
       titleLarge: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 16,
+      ),
+      headlineSmall: TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
       ),
       bodyLarge: TextStyle(
         fontWeight: FontWeight.normal,

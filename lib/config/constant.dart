@@ -1,6 +1,6 @@
 class Constant {
   static const sectionHotSales = "Hot Sales";
-  static const featuredProducts = "FeaturedProducts";
+  static const featuredProducts = "Featured Products";
   static const seeALL = "See all";
   static const addItem = "Add item to bag";
   static const continueToCustomerDetilis = "Continue to Checkout";

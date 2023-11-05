@@ -59,6 +59,18 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.mobileImage),
+    //
+    ProductInfoModel(
+        categoriesType: CategoryModel.categories
+            .where((name) =>
+                name.categoryName == "All" || name.categoryName == "Computers")
+            .toList(),
+        title: "Magic Wireless",
+        subTitle: "iPad Pro 12.9-Inch",
+        price: "199",
+        colorProdectImage: ColorMangers.semiPink,
+        prodectImage: AssetsImages.computer),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
@@ -69,26 +81,7 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.mobileImage),
-    ProductInfoModel(
-        categoriesType: CategoryModel.categories
-            .where((name) =>
-                name.categoryName == "All" || name.categoryName == "Computers")
-            .toList(),
-        title: "Magic Wireless",
-        subTitle: "iPad Pro 12.9-Inch",
-        price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.computer),
-    ProductInfoModel(
-        categoriesType: CategoryModel.categories
-            .where((name) =>
-                name.categoryName == "All" || name.categoryName == "Computers")
-            .toList(),
-        title: "Magic Wireless",
-        subTitle: "iPad Pro 12.9-Inch",
-        price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.computer),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
@@ -99,6 +92,18 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.headPhoneImage),
+    //
+    ProductInfoModel(
+        categoriesType: CategoryModel.categories
+            .where((name) =>
+                name.categoryName == "All" || name.categoryName == "Computers")
+            .toList(),
+        title: "Magic Wireless",
+        subTitle: "iPad Pro 12.9-Inch",
+        price: "199",
+        colorProdectImage: ColorMangers.semiPink,
+        prodectImage: AssetsImages.computer),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
@@ -109,6 +114,7 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.headPhoneImage),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
@@ -119,6 +125,18 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.appStoreImage),
+    //
+    ProductInfoModel(
+        categoriesType: CategoryModel.categories
+            .where((name) =>
+                name.categoryName == "All" || name.categoryName == "Headsets")
+            .toList(),
+        title: "AirPods Max 5",
+        subTitle: "Winning Beats sound",
+        price: "199",
+        colorProdectImage: ColorMangers.semiPink,
+        prodectImage: AssetsImages.headPhoneImage),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
@@ -129,6 +147,7 @@ class ProductInfoModel extends Equatable {
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
         prodectImage: AssetsImages.appStoreImage),
+    //
     ProductInfoModel(
         categoriesType: CategoryModel.categories
             .where((name) =>
