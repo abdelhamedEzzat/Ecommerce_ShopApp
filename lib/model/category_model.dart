@@ -18,16 +18,20 @@ class CategoryModel extends Equatable {
   static List<CategoryModel> categories = [
     CategoryModel(
       categoryName: "All",
-      iconImage: AssetsImages.mobile,
+      iconImage: AssetsImages.mobileIcon,
       onTap: () {},
     ),
     CategoryModel(
         categoryName: "Computers",
-        iconImage: AssetsImages.mobile,
+        iconImage: AssetsImages.mobileIcon,
         onTap: () {}),
     CategoryModel(
-        categoryName: "Headsets", iconImage: AssetsImages.mobile, onTap: () {}),
+        categoryName: "Headsets",
+        iconImage: AssetsImages.mobileIcon,
+        onTap: () {}),
     CategoryModel(
-        categoryName: "Speakers", iconImage: AssetsImages.mobile, onTap: () {}),
+        categoryName: "Speakers",
+        iconImage: AssetsImages.mobileIcon,
+        onTap: () {}),
   ];
 }

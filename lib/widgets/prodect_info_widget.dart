@@ -1,4 +1,4 @@
-import 'package:ecommerce_shop_app/model/models.dart';
+import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/my_old_divison/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
 import 'package:ecommerce_shop_app/config/images_manger.dart';

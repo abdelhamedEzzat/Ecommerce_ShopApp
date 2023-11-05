@@ -9,7 +9,7 @@ import 'package:ecommerce_shop_app/my_old_divison/recorses/colors_manger.dart';
 import 'package:ecommerce_shop_app/config/constant.dart';
 import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
 import '../../my_old_divison/main_app_view/componant_app_widgets/bottom_widget.dart';
-import '../../model/models.dart';
+import '../../model/product_model.dart';
 
 class MyCard extends StatefulWidget {
   const MyCard({

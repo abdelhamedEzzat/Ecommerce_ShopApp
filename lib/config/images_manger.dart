@@ -8,8 +8,10 @@ class AssetsImages {
   static const String personImage = "$path/images/person.png";
   static const String drawerLogo = "$path/images/drawerlogo.png";
   static const String heartImage = "$path/images/heart.png";
+  static const String computer = "$path/images/computer.png";
+  static const String mobileImage = "$path/images/mobileImage.png";
   // icons
   static const String addIcon = "$path/icons/add.png";
   static const String bagIcons = "$path/icons/bag.png";
-  static const String mobile = "$path/icons/mobile.png";
+  static const String mobileIcon = "$path/icons/mobile.png";
 }
