@@ -16,7 +16,7 @@ class HotSalesCubit extends Cubit<HotSalesState> {
       if (productInfoModel[i].id == productModel.id) {
         productInfoModel[i].clickCount++;
 
-        if (productInfoModel[i].clickCount % 4 == 0) {
+        if (productInfoModel[i].clickCount % 2 == 0) {
           hotSales.add(productInfoModel[i]);
 
           emit(HotSalesLoaded(hotSales: List.of(hotSales)));

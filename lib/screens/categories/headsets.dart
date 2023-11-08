@@ -39,8 +39,8 @@ class HeadsetsCategoryScreen extends StatelessWidget {
                     .where((categoryType) => categoryType.categoriesType
                         .any((category) => category.categoryName == "Headsets"))
                     .elementAt(index);
-                return MaterialButton(
-                  onPressed: () {
+                return GestureDetector(
+                  onTap: () {
                     BlocProvider.of<HotSalesCubit>(context).clicked(product);
                   },
                   child: BuildCategoryWidget(

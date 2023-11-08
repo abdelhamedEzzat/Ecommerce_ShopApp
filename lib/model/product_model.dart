@@ -19,7 +19,7 @@ class ProductInfoModel extends Equatable {
   final String prodectImage;
   final int? currentIndex;
   final void Function()? onTap;
-  int clickCount = 4;
+  int clickCount = 2;
 
   ProductInfoModel({
     this.hotSales,
@@ -137,7 +137,7 @@ class ProductInfoModel extends Equatable {
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Headsets")
             .toList(),
-        title: "AirPods Max 5",
+        title: "AirPods Max 5 pro",
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
