@@ -129,7 +129,7 @@ finalPriceWithdecrement(
   ProductInfoModel productFinalPrice,
 ) {
   // Parse the product prices as doubles
-  final double currentPrice = double.tryParse(productFinalPrice.price) ?? 0.0;
+  // final double currentPrice = double.tryParse(productFinalPrice.price) ?? 0.0;
   // final double originalPrice =
   //     double.tryParse(productInfoLISTForHotSales[index].price) ?? 0.0;
 

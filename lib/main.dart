@@ -1,5 +1,6 @@
+import 'package:ecommerce_shop_app/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/config/theme_data.dart';
-import 'package:ecommerce_shop_app/cubit/cubi_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/my_old_divison/main_app_view/main_%20home_view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
           create: (context) => AppCubit()..initDatabase(),
         ),
         BlocProvider(
-          create: (context) => CubiCubit(),
+          create: (context) => CategoryCubit(),
+        ),
+        BlocProvider(
+          create: (context) => HotSalesCubit(),
         )
       ],
       child: ScreenUtilInit(

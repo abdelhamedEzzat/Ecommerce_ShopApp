@@ -1,7 +1,9 @@
+import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/widgets/build_category_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeadsetsCategoryScreen extends StatelessWidget {
@@ -37,8 +39,13 @@ class HeadsetsCategoryScreen extends StatelessWidget {
                     .where((categoryType) => categoryType.categoriesType
                         .any((category) => category.categoryName == "Headsets"))
                     .elementAt(index);
-                return BuildCategoryWidget(
-                  productInfoModel: product,
+                return MaterialButton(
+                  onPressed: () {
+                    BlocProvider.of<HotSalesCubit>(context).clicked(product);
+                  },
+                  child: BuildCategoryWidget(
+                    productInfoModel: product,
+                  ),
                 );
               },
             ),

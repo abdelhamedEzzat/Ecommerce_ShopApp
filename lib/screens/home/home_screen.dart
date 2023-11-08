@@ -1,9 +1,11 @@
 import 'package:ecommerce_shop_app/config/constant.dart';
+import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
 import 'package:ecommerce_shop_app/widgets/category_section_widget.dart';
 import 'package:ecommerce_shop_app/widgets/featured_product_widget.dart';
 import 'package:ecommerce_shop_app/widgets/hot_sales_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widgets/promo_widget.dart';
 import '../../widgets/category_widget.dart';
@@ -59,7 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
           categorySection(context,
               sectionName: Constant.sectionHotSales, seeAll: Constant.seeALL),
           //
-          const HotSalesWidget(),
+          BlocBuilder<HotSalesCubit, HotSalesState>(
+            builder: (context, state) {
+              return const HotSalesWidget();
+            },
+          ),
           //
           SizedBox(
             height: 15.h,

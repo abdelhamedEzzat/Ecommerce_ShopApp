@@ -1,9 +1,8 @@
+import 'package:ecommerce_shop_app/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/model/category_model.dart';
-import 'package:ecommerce_shop_app/screens/categories/all_categories.dart';
-import 'package:ecommerce_shop_app/screens/categories/computer_category.dart';
-import 'package:ecommerce_shop_app/screens/categories/headsets.dart';
-import 'package:ecommerce_shop_app/screens/categories/speakers.dart';
+import 'package:ecommerce_shop_app/my_old_divison/cubit/home_view_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../my_old_divison/recorses/colors_manger.dart';
 
@@ -32,27 +31,8 @@ class _CategoryWidget extends StatelessWidget {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return GestureDetector(
         onTap: () {
-          // BlocProvider.of<CubiCubit>(context).method(category);
-          if (CategoryModel.categories.elementAt(0) == category) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AllCategories(),
-            ));
-          }
-          if (CategoryModel.categories.elementAt(1) == category) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const ComputersCategoryScreen(),
-            ));
-          }
-          if (CategoryModel.categories.elementAt(2) == category) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const HeadsetsCategoryScreen(),
-            ));
-          }
-          if (CategoryModel.categories.elementAt(3) == category) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const SpeakersCategoryScreen(),
-            ));
-          }
+          BlocProvider.of<CategoryCubit>(context)
+              .categoryNav(category, context, index);
         },
         child: Container(
             padding: EdgeInsets.only(
