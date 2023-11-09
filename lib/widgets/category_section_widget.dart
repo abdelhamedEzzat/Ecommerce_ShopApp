@@ -1,4 +1,4 @@
-import 'package:ecommerce_shop_app/screens/see_All_screens/hot_sales_see_all_screen.dart';
+import 'package:ecommerce_shop_app/screens/see_All_screens/see_all_screen_for_hot_sales.dart';
 import 'package:flutter/material.dart';
 
 import '../my_old_divison/recorses/font_manger.dart';
@@ -13,7 +13,6 @@ Widget categorySection(context,
             left: MediaQuery.of(context).size.width / AppSize.s18,
             right: MediaQuery.of(context).size.width / AppSize.s18,
             bottom: MediaQuery.of(context).size.height / AppSize.s70,
-            // top: MediaQuery.of(context).size.height / AppSize.s100
           ),
           width: double.infinity,
           child:
@@ -22,7 +21,7 @@ Widget categorySection(context,
               sectionName,
               style: Theme.of(context)
                   .textTheme
-                  .displaySmall!
+                  .bodySmall!
                   .copyWith(color: Theme.of(context).colorScheme.onSurface),
             ),
             GestureDetector(

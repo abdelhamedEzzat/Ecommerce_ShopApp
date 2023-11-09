@@ -57,8 +57,8 @@ class _CategoryWidget extends StatelessWidget {
               children: [
                 Image.asset(
                   category.iconImage,
-                  color: ColorMangers.semiGray,
-                  width: 5.w,
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  width: 7.w,
                 ),
                 SizedBox(
                   width: 4.w,
@@ -66,7 +66,10 @@ class _CategoryWidget extends StatelessWidget {
                 Center(
                   child: Text(
                     category.categoryName,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
+                        ),
                   ),
                 )
               ],

@@ -1,274 +1,228 @@
-// // ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks
 
-// import 'package:ecommerce_shop_app/my_old_divison/cubit/home_view_cubit.dart';
-// import 'package:ecommerce_shop_app/my_old_divison/cubit/home_view_state.dart';
-// import 'package:ecommerce_shop_app/config/constant.dart';
-// import 'package:ecommerce_shop_app/my_old_divison/recorses/values.dart';
-// import 'package:ecommerce_shop_app/my_old_divison/views/home_%20view/componant/app_bar_widget.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ecommerce_shop_app/model/product_model.dart';
+import 'package:ecommerce_shop_app/config/constant.dart';
+import 'package:ecommerce_shop_app/widgets/counter_widget.dart';
+import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// import '../../my_old_divison/main_app_view/componant_app_widgets/bottom_widget.dart';
-// import '../../model/models.dart';
-// import '../../my_old_divison/views/home_ view/componant/prodect_info_list.dart';
-// import '../my_card/my_card_screen.dart';
+import '../../my_old_divison/main_app_view/componant_app_widgets/button_widget.dart';
+import '../my_card/my_card_screen.dart';
 
-// class ProductDetails extends StatefulWidget {
-//   const ProductDetails({
-//     super.key,
-//     required this.prodects,
-//   });
-//   final ProductInfoModel prodects;
+class ProductDetails extends StatefulWidget {
+  const ProductDetails({
+    super.key,
+    required this.products,
+  });
+  final ProductInfoModel products;
 
-//   @override
-//   State<ProductDetails> createState() => _ProductDetailsState();
-// }
+  @override
+  State<ProductDetails> createState() => _ProductDetailsState();
+}
 
-// ProductInfoModel? product;
+class _ProductDetailsState extends State<ProductDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const CustomAppBar(
+        title: Text("ProductDetails"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // this  class ProductImageAndBackgroundColor for the
+              //first half of screen for image of product and backGroundColor For it
 
-// class _ProductDetailsState extends State<ProductDetails> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: appBarWidget(
-//           // (For AppBar Title)
+              ProductImageAndBackgroundColor(
+                productDetails: widget.products,
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
 
-//           Text(
-//             "Product Details",
-//             style: Theme.of(context).textTheme.headlineLarge,
-//           ),
+              // this class ProductInformation for title and FavoriteIcon
+              // and description and Price and counter For Product And ButtonWidget
+              //that every  items is in single class .
 
-//           // (For AppBar Leading )
-//           IconButton(
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//               },
-//               icon: const Icon(Icons.arrow_back_ios_new)),
-//         ),
-//         body: Column(children: [
-//           productImageAndBackgroundColor(
-//             context,
-//           ),
-//           SizedBox(
-//             height: 25.h,
-//           ),
-//           BlocConsumer<AppCubit, AppState>(
-//             listener: (context, state) {
-//               //
-//               //    state
-//               //
-//               if (state is AppChangePriceIncrement &&
-//                   state is AppIncrementState &&
-//                   AppCubit.get(context).index >= 0 &&
-//                   AppCubit.get(context).index <
-//                       productInfoLISTForHotSales.length)
-//               //
-//               //   Results
-//               //
-//               {
-//                 AppCubit.get(context).finalPriceWithIncrement(
-//                     widget.prodects.price as ProductInfoModel);
-//                 //
-//               } else if
-//                   //
-//                   //    state
-//                   //
-//                   (state is AppChangePricedecrement &&
-//                       state is AppDecrementState &&
-//                       AppCubit.get(context).index >= 0 &&
-//                       AppCubit.get(context).index <
-//                           productInfoLISTForHotSales.length)
-//               //
-//               //   Results
-//               //
-//               {
-//                 AppCubit.get(context).finalPriceWithdecrement(
-//                     widget.prodects.price as ProductInfoModel);
-//               }
-//             },
-//             builder: (context, state) {
-//               return productInformation(
-//                 context: context,
-//                 productInfo: widget.prodects,
-//               );
-//             },
-//           )
-//         ]));
-//   }
+              ProductInformation(
+                productinformation: widget.products,
+              )
+            ]),
+      ),
+    );
+  }
+}
 
-//   Widget productImageAndBackgroundColor(
-//     BuildContext context,
-//   ) {
-//     return Expanded(
-//         child: Container(
-//       width: MediaQuery.of(context).size.width,
-//       color: Color(
-//         widget.prodects.colorProdectImage,
-//       ),
-//       child: Image.asset(widget.prodects.prodectImage),
-//     ));
-//   }
+class ProductImageAndBackgroundColor extends StatelessWidget {
+  const ProductImageAndBackgroundColor({
+    super.key,
+    required this.productDetails,
+  });
 
-//   Widget productInformation({
-//     required BuildContext context,
-//     required ProductInfoModel productInfo,
-//   }) {
-//     return Expanded(
-//       child: Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 30.h),
-//           child: Container(
-//             child: Column(
-//               children: [
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                   children: [
-//                     Expanded(
-//                       child: SizedBox(
-//                         height: 50.h,
-//                         width: MediaQuery.of(context).size.width,
-//                         child: ListTile(
-//                           contentPadding: EdgeInsets.zero,
-//                           title: Text(
-//                             widget.prodects.title,
-//                             style: Theme.of(context).textTheme.headlineSmall,
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                     Expanded(
-//                         child: Container(
-//                             decoration: BoxDecoration(),
-//                             alignment: Alignment.centerRight,
-//                             height: 50.h,
-//                             child: GestureDetector(
-//                               onTap: AppCubit.get(context).toggleHeartColor,
-//                               child: Icon(
-//                                 AppCubit.get(context).isHeartRed == false
-//                                     ? Icons.favorite_border_sharp
-//                                     : Icons.favorite,
-//                                 size: 45,
-//                                 color: AppCubit.get(context).isHeartRed == false
-//                                     ? Colors.black
-//                                     : Colors.red,
-//                               ),
-//                             )
-//                             //  Image.asset(
-//                             //   AssetsImages.heartImage,
-//                             //   color: Colors.red,
-//                             //   colorBlendMode: BlendMode.color,
-//                             //   fit: BoxFit.fill,
-//                             // )
-//                             ))
-//                   ],
-//                 ),
-//                 SizedBox(
-//                   height: 20.h,
-//                 ),
-//                 Container(
-//                   child: const Text(Values.subTitleDetails),
-//                 ),
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                   children: [
-//                     Row(
-//                       children: [
-//                         Container(
-//                           child: Text(
-//                             "\$",
-//                             style: Theme.of(context).textTheme.headlineSmall,
-//                           ),
-//                         ),
-//                         Container(
-//                           child: Text(
-//                             AppCubit.get(context).currentIndex == 1
-//                                 ? productInfoLISTForHotSales[
-//                                         AppCubit.get(context).index]
-//                                     .price
-//                                     .toString()
-//                                 : productInfo.price.toString(),
-//                             style: Theme.of(context).textTheme.headlineSmall,
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                     SizedBox(
-//                       height: 15.h,
-//                     ),
-//                     Container(
-//                       child: Row(
-//                         children: [
-//                           IconButton(
-//                               onPressed: () {
-//                                 AppCubit.get(context).decrement();
-//                                 AppCubit.get(context).finalPriceWithdecrement(
-//                                   productInfo,
-//                                 );
-//                               },
-//                               icon: Icon(
-//                                 Icons.do_not_disturb_on_outlined,
-//                                 size: 25.spMin,
-//                               )),
-//                           Text(
-//                             ' ${(productInfo.currentIndex = AppCubit.get(context).currentIndex).toString()}',
-//                             //  productInfo.currentIndex =
+  final ProductInfoModel productDetails;
 
-//                             style: Theme.of(context).textTheme.bodyLarge,
-//                           ),
-//                           IconButton(
-//                               onPressed: () {
-//                                 AppCubit.get(context).increment(productInfo);
-//                                 AppCubit.get(context)
-//                                     .finalPriceWithIncrement(productInfo);
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 2.5,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        color: Color(
+          productDetails.colorProdectImage,
+        ),
+        child: Image.asset(productDetails.prodectImage),
+      ),
+    );
+  }
+}
 
-//                                 print("finalPrice ${widget.prodects.price}");
-//                               },
-//                               icon: Icon(
-//                                 Icons.add_circle_outline_outlined,
-//                                 size: 25.spMin,
-//                               ))
-//                         ],
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//                 bottomWidget(
-//                     context: context,
-//                     nameOfBottom: Constant.addItem,
-//                     onPress: () {
-//                       AppCubit.get(context).insertProduct(productInfo);
-//                       AppCubit.get(context).getAllProducts(productInfo);
-//                       Navigator.of(context).push(
-//                         MaterialPageRoute(
-//                           builder: (context) => MyCard(product: productInfo),
-//                         ),
-//                       );
-//                     })
-//               ],
-//             ),
-//           )),
-//     );
-//   }
-// }
+class ProductInformation extends StatelessWidget {
+  const ProductInformation({
+    super.key,
+    required this.productinformation,
+  });
 
-// // class SubTitleDetails {
-// //   final String subTitleDetail;
+  final ProductInfoModel productinformation;
 
-// //   SubTitleDetails({required this.subTitleDetail});
-// // }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.h),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //
 
-// // List<SubTitleDetails> detailsList = [
-// //   SubTitleDetails(
-// //       subTitleDetail:
-// //           'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear')
-// // ];
+          TitleAndFavoriteIcons(productinformation: productinformation),
 
-// // widget.prodects.price == state.products;
-// // widget.prodects.price =
-// //     productInfoLISTForHotSales[AppCubit.get(context).index]
-// //             .price *
-// //         AppCubit.get(context).currentIndex;
+          SizedBox(
+            height: 20.h,
+          ),
 
-// // widget.prodects.price = widget.prodects.price -
-// //     productInfoLISTForHotSales[AppCubit.get(context).index]
-// //         .price;
+          //
+
+          DiscriptionWidget(productinformation: productinformation),
+
+          //
+
+          PriceAndCount(productinformation: productinformation),
+
+          //
+          ButtonWidget(
+              nameOfBottom: Constant.addItem,
+              onPress: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MyCard(product: productinformation),
+                  ),
+                );
+              }),
+        ],
+      ),
+    ));
+  }
+}
+
+class TitleAndFavoriteIcons extends StatelessWidget {
+  const TitleAndFavoriteIcons({
+    super.key,
+    required this.productinformation,
+  });
+
+  final ProductInfoModel productinformation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Expanded(
+          flex: 3,
+          child: SizedBox(
+            height: 50.h,
+            width: MediaQuery.of(context).size.width,
+            child: ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                productinformation.title,
+                maxLines: 1,
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.primaryContainer),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+            child: Container(
+                alignment: Alignment.centerRight,
+                height: 50.h,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.favorite_border_sharp,
+                    size: 45,
+                  ),
+                )))
+      ],
+    );
+  }
+}
+
+class DiscriptionWidget extends StatelessWidget {
+  const DiscriptionWidget({
+    super.key,
+    required this.productinformation,
+  });
+
+  final ProductInfoModel productinformation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        productinformation.description,
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
+    );
+  }
+}
+
+class PriceAndCount extends StatelessWidget {
+  const PriceAndCount({
+    super.key,
+    required this.productinformation,
+  });
+
+  final ProductInfoModel productinformation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          "\$",
+          style: Theme.of(context)
+              .textTheme
+              .displayMedium!
+              .copyWith(color: Theme.of(context).colorScheme.primaryContainer),
+        ),
+        Container(
+          alignment: Alignment.centerLeft,
+          child: Text(productinformation.price,
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                  )),
+        ),
+        SizedBox(
+          height: 15.h,
+        ),
+        const Spacer(),
+        const CounterWidget(),
+      ],
+    );
+  }
+}

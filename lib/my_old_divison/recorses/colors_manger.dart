@@ -7,8 +7,8 @@ class ColorMangers {
   static const black = Color(0xFF000000);
   static const white = Colors.white;
   static const semiBlue = Color(0xff20ACFD);
-  static const mentGray = Color(0xff3AC6A5);
-  static const yellowgold = Color(0xffFFDCBC);
+  static const mentGreen = 0xff3AC6A5;
+  static const yellowgold = 0xffFFDCBC;
   static const gray = Color(0xffEFEFEF);
   static const backGroundColor = Color(0xfff6f6f6);
   static const colorMobileProduct = 0xffE8F6FB;

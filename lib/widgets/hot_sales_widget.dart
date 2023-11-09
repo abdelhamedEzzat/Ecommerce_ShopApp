@@ -21,17 +21,13 @@ class HotSalesWidget extends StatelessWidget {
         ),
         child: BlocBuilder<HotSalesCubit, HotSalesState>(
             builder: (context, state) {
-          // final product =
-          //     BlocProvider.of<HotSalesCubit>(context).hotSales.toList();
           if (state is HotSalesInitial) {
             //
             return const InitialHotSalesWidget();
             //
           } else if (state is HotSalesLoaded) {
             //
-            return AfterHotSalesLoaded(
-                // product: product
-                );
+            return const AfterHotSalesLoaded();
             //
           } else {
             return const Text("SomeThing Went Wrong ");
@@ -43,15 +39,12 @@ class HotSalesWidget extends StatelessWidget {
 class AfterHotSalesLoaded extends StatelessWidget {
   const AfterHotSalesLoaded({
     super.key,
-    // required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
     final product = BlocProvider.of<HotSalesCubit>(context).hotSales.toList();
     final newList = product.reversed.take(2).toList();
-
-    // Remove all items except the last two
 
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -65,8 +58,6 @@ class AfterHotSalesLoaded extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         //
         itemBuilder: (BuildContext context, int index) {
-          //  final products = product.sublist(index);
-
           final prod = newList[index];
           if (product.length > newList.length) {
             product.removeRange(0, product.length - 3);

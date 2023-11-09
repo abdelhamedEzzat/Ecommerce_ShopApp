@@ -7,18 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //
-//  Widget function  for HotSalesProducts
+// The product details in the list appear,
+// including an image, title, subtitle, price, and an icon to add the product to the cart for purchase.
 //
 //
-Widget prodectInfoWidgetForHotSales(
-  BuildContext context,
-  ProductInfoModel productInfo, {
-  required void Function()? press,
-  // required void Function()? onPressonIcon(),
-}) {
-  return GestureDetector(
-    onTap: press,
-    child: Container(
+
+class ProdectInfoWidget extends StatelessWidget {
+  const ProdectInfoWidget({super.key, required this.productInfo, this.press});
+  final ProductInfoModel productInfo;
+  final void Function()? press;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
         margin: const EdgeInsets.only(),
         color: ColorMangers.white,
         // color: Colors.blueAccent,
@@ -27,252 +27,181 @@ Widget prodectInfoWidgetForHotSales(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              imageInfoForHotSales(context, productInfo),
+              ImageInfoWidget(productInfo: productInfo),
               Expanded(
                 child: GestureDetector(
                   onTap: productInfo.onTap,
                   child: Column(
                     children: [
-                      titleinfoForHotSales(context, productInfo),
-                      subTilteinfoForHotSales(context, productInfo),
-                      priceAndaddIconForHotSales(
-                        context,
-                        productInfo,
-                      ),
+                      //
+                      TitleInfoWidget(productInfo: productInfo),
+                      //
+                      SubTitleInfoWidget(productInfo: productInfo),
+                      //
+                      PriceAndIconWidget(productInfo: productInfo),
                     ],
                   ),
                 ),
               ),
-            ])),
-  );
+            ]));
+  }
 }
 
-//  Widget function  for imageHotSalesProducts
-//
+class ImageInfoWidget extends StatelessWidget {
+  const ImageInfoWidget({
+    super.key,
+    required this.productInfo,
+  });
 
-Widget imageInfoForHotSales(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      color: Color(productInfo.colorProdectImage),
-      margin: EdgeInsets.only(
-          top: AppSize.s4.h,
-          left: AppSize.s4.w,
-          right: AppSize.s4.h,
-          bottom: AppSize.s8.h),
-      width: MediaQuery.of(context).size.width,
-      child: Center(child: Image.asset(productInfo.prodectImage)),
-    ),
-  );
-}
+  final ProductInfoModel productInfo;
 
-//
-//  Widget function  for titleHotSalesProducts
-//
-
-Widget titleinfoForHotSales(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Container(
-    margin: const EdgeInsets.only(bottom: 5),
-    height: AppSize.s14.h,
-    alignment: Alignment.topLeft,
-    padding: EdgeInsets.only(
-      left: MediaQuery.of(context).size.width / AppSize.s23,
-    ),
-    child: Text(
-      productInfo.title,
-      style: Theme.of(context).textTheme.labelMedium,
-    ),
-  );
-}
-
-//
-//  Widget function  for subtitleHotSalesProducts
-//
-
-Widget subTilteinfoForHotSales(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Container(
-    height: AppSize.s15.h,
-    alignment: Alignment.topLeft,
-    padding:
-        EdgeInsets.only(left: MediaQuery.of(context).size.width / AppSize.s23),
-    child: Text(
-      productInfo.subTitle,
-      style: Theme.of(context).textTheme.labelSmall,
-    ),
-  );
-}
-
-//
-//  Widget function  for priceAndaddHotSalesProducts
-//
-
-Widget priceAndaddIconForHotSales(
-  BuildContext context,
-  ProductInfoModel productInfo,
-) {
-  return Row(
-    children: [
-      Container(
-        padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width / AppSize.s25),
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Color(productInfo.colorProdectImage),
         margin: EdgeInsets.only(
-            bottom: 20.h,
-            right: MediaQuery.of(context).size.width / AppSize.s12),
-        child: Row(
-          children: [
-            Text(
-              "\$",
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            Text(
-              productInfo.price.toString(),
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-          ],
-        ),
+            top: AppSize.s4.h,
+            left: AppSize.s4.w,
+            right: AppSize.s4.h,
+            bottom: AppSize.s8.h),
+        width: MediaQuery.of(context).size.width,
+        child: Center(child: Image.asset(productInfo.prodectImage)),
       ),
-      Expanded(
-        child: IconButton(
-            onPressed: () {
-              // AppCubit.get(context).insertProduct(productInfo);
-              // AppCubit.get(context).getAllProducts(productInfo);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => MyCard(product: productInfo),
-                ),
-              );
-            },
-            icon: Image.asset(
-              AssetsImages.addIcon,
-            )),
-      ),
-    ],
-  );
+    );
+  }
 }
 
-//
-//
-//  Widget function  for FeaturedProducts
-//
-//
+class TitleInfoWidget extends StatelessWidget {
+  const TitleInfoWidget({
+    super.key,
+    required this.productInfo,
+  });
 
-Widget prodectInfoWidgetForFeaturedProducts(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Container(
-      height: 200.h,
-      color: ColorMangers.white,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            imageInfoforFeaturedProducts(context, productInfo),
-            Expanded(
-              child: Column(
-                children: [
-                  titleInfoforFeaturedProducts(context, productInfo),
-                  subTilteInfoForFeaturedProducts(context, productInfo),
-                  priceAndAddIconForFeaturedProducts(context, productInfo),
-                ],
+  final ProductInfoModel productInfo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 5),
+      height: AppSize.s14.h,
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(
+        left: MediaQuery.of(context).size.width / AppSize.s23,
+      ),
+      child: Text(
+        productInfo.title,
+        style: Theme.of(context).textTheme.titleMedium,
+      ),
+    );
+  }
+}
+
+class SubTitleInfoWidget extends StatelessWidget {
+  const SubTitleInfoWidget({
+    super.key,
+    required this.productInfo,
+  });
+
+  final ProductInfoModel productInfo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: AppSize.s15.h,
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(
+        left: MediaQuery.of(context).size.width / AppSize.s23,
+      ),
+      child: Text(
+        productInfo.subTitle,
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),
+      ),
+    );
+  }
+}
+
+class PriceAndIconWidget extends StatelessWidget {
+  const PriceAndIconWidget({
+    super.key,
+    required this.productInfo,
+  });
+
+  final ProductInfoModel productInfo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        //
+        PriceWidget(
+          productInfo: productInfo,
+        ),
+        //
+        IconButtonWidget(productInfo: productInfo),
+      ],
+    );
+  }
+}
+
+class PriceWidget extends StatelessWidget {
+  const PriceWidget({
+    super.key,
+    required this.productInfo,
+  });
+  final ProductInfoModel productInfo;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width / AppSize.s21),
+      margin: EdgeInsets.only(
+          bottom: 10.h, right: MediaQuery.of(context).size.width / AppSize.s12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            "\$",
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Text(
+            productInfo.price.toString(),
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class IconButtonWidget extends StatelessWidget {
+  const IconButtonWidget({
+    super.key,
+    required this.productInfo,
+  });
+
+  final ProductInfoModel productInfo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: IconButton(
+          onPressed: () {
+            // AppCubit.get(context).insertProduct(productInfo);
+            // AppCubit.get(context).getAllProducts(productInfo);
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => MyCard(product: productInfo),
               ),
-            ),
-          ]));
-}
-
-//
-//  Widget function  for  image FeaturedProducts
-//
-
-Widget imageInfoforFeaturedProducts(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      color: Color(productInfo.colorProdectImage),
-      margin: EdgeInsets.only(
-          top: AppSize.s4.h,
-          left: AppSize.s4.w,
-          right: AppSize.s4.h,
-          bottom: AppSize.s8.h),
-      width: MediaQuery.of(context).size.width,
-      child: Center(child: Image.asset(productInfo.prodectImage)),
-    ),
-  );
-}
-
-//
-//  Widget function  for  title FeaturedProducts
-//
-
-Widget titleInfoforFeaturedProducts(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Container(
-    margin: const EdgeInsets.only(bottom: 5),
-    height: AppSize.s15.h,
-    alignment: Alignment.topLeft,
-    padding:
-        EdgeInsets.only(left: MediaQuery.of(context).size.width / AppSize.s23),
-    child: Text(
-      productInfo.title,
-      style: Theme.of(context).textTheme.labelMedium,
-    ),
-  );
-}
-
-//
-//  Widget function  for  subTitle FeaturedProducts
-//
-
-Widget subTilteInfoForFeaturedProducts(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Container(
-    height: AppSize.s15.h,
-    alignment: Alignment.topLeft,
-    padding:
-        EdgeInsets.only(left: MediaQuery.of(context).size.width / AppSize.s23),
-    child: Text(
-      productInfo.subTitle,
-      style: Theme.of(context).textTheme.labelSmall,
-    ),
-  );
-}
-
-//
-//  Widget function  for  priceAndAddIcon FeaturedProducts
-//
-
-Widget priceAndAddIconForFeaturedProducts(
-    BuildContext context, ProductInfoModel productInfo) {
-  return Row(
-    children: [
-      Container(
-        padding: EdgeInsets.only(
-            left: MediaQuery.of(context).size.width / AppSize.s25),
-        margin: EdgeInsets.only(
-            bottom: 20.h,
-            right: MediaQuery.of(context).size.width / AppSize.s12),
-        child: Row(
-          children: [
-            Text(
-              "\$",
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            Text(
-              productInfo.price.toString(),
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-          ],
-        ),
-      ),
-      Expanded(
-        child: IconButton(
-            onPressed: () {},
-            icon: Image.asset(
-              AssetsImages.addIcon,
-            )),
-      ),
-    ],
-  );
+            );
+          },
+          icon: Image.asset(
+            AssetsImages.addIcon,
+          )),
+    );
+  }
 }

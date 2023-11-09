@@ -45,11 +45,12 @@ ThemeData theme() {
         fontSize: 36,
       ),
       displayMedium: TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         fontSize: 24,
       ),
+      bodySmall: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       displaySmall: TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w500,
         fontSize: 18,
       ),
       headlineMedium: TextStyle(
@@ -60,6 +61,7 @@ ThemeData theme() {
         fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
+      titleMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
       headlineSmall: TextStyle(
         fontWeight: FontWeight.normal,
         fontSize: 14,
@@ -131,11 +133,11 @@ ThemeData getApplicationTheme() {
           labelSmall: getRegularStyle(
               fontSize: FontSize.s8.spMin, color: ColorMangers.semiGray),
           //
-          titleMedium: getLightStyle(
-              color: ColorMangers.yellowgold, fontSize: FontSize.s12.spMin),
-          //
-          bodySmall: getLightStyle(
-              fontSize: FontSize.s12.spMin, color: ColorMangers.semiGray),
+          // titleMedium: getLightStyle(
+          //     color: ColorMangers.yellowgold, fontSize: FontSize.s12.spMin),
+          // //
+          // bodySmall: getLightStyle(
+          //     fontSize: FontSize.s12.spMin, color: ColorMangers.semiGray),
           //
           titleSmall: getLightStyle(
               color: ColorMangers.white, fontSize: FontSize.s11.spMin),

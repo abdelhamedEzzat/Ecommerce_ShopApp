@@ -17,6 +17,7 @@ class ProductInfoModel extends Equatable {
   final String? addIcon;
   final int colorProdectImage;
   final String prodectImage;
+  final String description;
   final int? currentIndex;
   final void Function()? onTap;
   int clickCount = 2;
@@ -24,6 +25,7 @@ class ProductInfoModel extends Equatable {
   ProductInfoModel({
     this.hotSales,
     required this.id,
+    required this.description,
     required this.categoriesType,
     required this.title,
     required this.subTitle,
@@ -43,7 +45,8 @@ class ProductInfoModel extends Equatable {
         addIcon,
         colorProdectImage,
         prodectImage,
-        currentIndex
+        currentIndex,
+        description
       ];
 
   static List<ProductInfoModel> products = [
@@ -56,8 +59,10 @@ class ProductInfoModel extends Equatable {
         title: " iPad Pro",
         subTitle: "Space Gray (6th gen)",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.mobileImage),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.mobileImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 2,
@@ -68,8 +73,11 @@ class ProductInfoModel extends Equatable {
         title: "Magic Wireless",
         subTitle: "iPad Pro 12.9-Inch",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.computer),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.computer,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
+
     //
     ProductInfoModel(
         id: 3,
@@ -80,8 +88,10 @@ class ProductInfoModel extends Equatable {
         title: "Apple iPad Pro",
         subTitle: "Space Gray (6th gen)",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.mobileImage),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.mobileImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 4,
@@ -92,8 +102,10 @@ class ProductInfoModel extends Equatable {
         title: "AirPods Max 5s",
         subTitle: "Winning Beats sound",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.headPhoneImage),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.headPhoneImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 5,
@@ -104,8 +116,10 @@ class ProductInfoModel extends Equatable {
         title: "Magic Wireless",
         subTitle: "iPad Pro 12.9-Inch",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.computer),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.computer,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 6,
@@ -116,8 +130,10 @@ class ProductInfoModel extends Equatable {
         title: "AirPods Max 5",
         subTitle: "Winning Beats sound",
         price: "199",
-        colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.headPhoneImage),
+        colorProdectImage: ColorMangers.yellowgold,
+        prodectImage: AssetsImages.headPhoneImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 7,
@@ -129,7 +145,9 @@ class ProductInfoModel extends Equatable {
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.appStoreImage),
+        prodectImage: AssetsImages.appStoreImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 8,
@@ -141,7 +159,9 @@ class ProductInfoModel extends Equatable {
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.headPhoneImage),
+        prodectImage: AssetsImages.headPhoneImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 9,
@@ -153,7 +173,9 @@ class ProductInfoModel extends Equatable {
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.appStoreImage),
+        prodectImage: AssetsImages.appStoreImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
         id: 10,
@@ -165,6 +187,8 @@ class ProductInfoModel extends Equatable {
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
-        prodectImage: AssetsImages.appStoreImage),
+        prodectImage: AssetsImages.appStoreImage,
+        description:
+            'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
   ];
 }
