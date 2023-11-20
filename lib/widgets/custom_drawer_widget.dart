@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../my_old_divison/recorses/colors_manger.dart';
+import '../config/colors_manger.dart';
 import '../config/constant.dart';
 import '../config/images_manger.dart';
 

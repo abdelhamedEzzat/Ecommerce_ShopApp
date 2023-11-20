@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:ecommerce_shop_app/category_cubit/category_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/build_category_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce_shop_app/model/product_model.dart';

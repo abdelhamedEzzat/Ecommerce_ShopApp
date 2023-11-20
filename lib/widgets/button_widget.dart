@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../recorses/colors_manger.dart';
+import '../config/colors_manger.dart';
 
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     super.key,
-    required this.nameOfBottom,
+    required this.nameOfBotton,
     this.onPress,
   });
-  final String nameOfBottom;
+  final String nameOfBotton;
   final void Function()? onPress;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ButtonWidget extends StatelessWidget {
           onPressed: onPress,
           child: Center(
             child: Text(
-              nameOfBottom,
+              nameOfBotton,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),

@@ -1,11 +1,12 @@
 import 'dart:math';
 
-import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/widgets/build_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../cubits/hot_sales_cubit/hot_sales_cubit.dart';
 
 class HotSalesWidget extends StatelessWidget {
   const HotSalesWidget({

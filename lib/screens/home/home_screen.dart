@@ -1,6 +1,5 @@
 import 'package:ecommerce_shop_app/config/constant.dart';
-import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
-import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
+import 'package:ecommerce_shop_app/cubits/hot_sales_cubit/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/category_section_widget.dart';
 import 'package:ecommerce_shop_app/widgets/featured_product_widget.dart';
 import 'package:ecommerce_shop_app/widgets/hot_sales_widget.dart';
@@ -18,43 +17,26 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-//final ScrollController _scrollController = ScrollController();
-// intial state for advertisement
-//
-// void initState() {
-//   WidgetsBinding.instance.addPostFrameCallback((_) {
-//     double minScrollContraller = _scrollController.position.minScrollExtent;
-//     double maxScrollContraller = _scrollController.position.maxScrollExtent;
 
-//     animateFromMinToMax(
-//         maxScrollContraller,
-//         minScrollContraller,
-//         maxScrollContraller,
-//         Curves.linear,
-//         durationSecond20,
-//         _scrollController);
-//   });
-//   super.initState();
-// }
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
       SizedBox(
-        height: SizeWidget.s130.h,
+        height: 130.h,
         child: const PromoListView(),
       ),
       SizedBox(
-        height: SizeWidget.s10.h,
+        height: 10.h,
       ),
       Container(
         margin: EdgeInsets.only(left: 20.w),
-        height: SizeWidget.s20.h,
+        height: 20.h,
         child: const CotegoryListView(),
       ),
       SizedBox(
-        height: SizeWidget.s10.h,
+        height: 10.h,
       ),
       Column(
         children: [

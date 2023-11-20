@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:ecommerce_shop_app/model/promo_model.dart';
-import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
 
 class PromoListView extends StatelessWidget {
   const PromoListView({
@@ -55,8 +54,7 @@ class _PromoCard extends StatelessWidget {
         Expanded(
             flex: 2,
             child: Padding(
-              padding: EdgeInsets.only(
-                  top: AppSize.s7.h, bottom: AppSize.s5.h, left: AppSize.s35.w),
+              padding: EdgeInsets.only(top: 7.h, bottom: 5.h, left: 35.w),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

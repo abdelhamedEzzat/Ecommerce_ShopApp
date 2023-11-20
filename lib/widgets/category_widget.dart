@@ -1,10 +1,9 @@
-import 'package:ecommerce_shop_app/category_cubit/category_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/model/category_model.dart';
-import 'package:ecommerce_shop_app/my_old_divison/cubit/home_view_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../my_old_divison/recorses/colors_manger.dart';
+import '../config/colors_manger.dart';
 
 class CotegoryListView extends StatelessWidget {
   const CotegoryListView({super.key});
@@ -31,8 +30,10 @@ class _CategoryWidget extends StatelessWidget {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return GestureDetector(
         onTap: () {
-          BlocProvider.of<CategoryCubit>(context)
-              .categoryNav(category, context, index);
+          BlocProvider.of<CategoryCubit>(context).categoryNav(
+            category,
+            context,
+          );
         },
         child: Container(
             padding: EdgeInsets.only(

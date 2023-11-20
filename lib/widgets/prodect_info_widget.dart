@@ -1,6 +1,6 @@
 import 'package:ecommerce_shop_app/model/product_model.dart';
-import 'package:ecommerce_shop_app/my_old_divison/recorses/colors_manger.dart';
-import 'package:ecommerce_shop_app/my_old_divison/recorses/font_manger.dart';
+import 'package:ecommerce_shop_app/config/colors_manger.dart';
+import 'package:ecommerce_shop_app/config/font_manger.dart';
 import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/screens/my_card/my_card_screen.dart';
 import 'package:flutter/material.dart';
@@ -61,11 +61,7 @@ class ImageInfoWidget extends StatelessWidget {
       flex: 2,
       child: Container(
         color: Color(productInfo.colorProdectImage),
-        margin: EdgeInsets.only(
-            top: AppSize.s4.h,
-            left: AppSize.s4.w,
-            right: AppSize.s4.h,
-            bottom: AppSize.s8.h),
+        margin: EdgeInsets.only(top: 4.h, left: 4.w, right: 4.h, bottom: 8.h),
         width: MediaQuery.of(context).size.width,
         child: Center(child: Image.asset(productInfo.prodectImage)),
       ),
@@ -88,7 +84,7 @@ class TitleInfoWidget extends StatelessWidget {
       height: AppSize.s14.h,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width / AppSize.s23,
+        left: MediaQuery.of(context).size.width / 23,
       ),
       child: Text(
         productInfo.title,
@@ -109,10 +105,10 @@ class SubTitleInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppSize.s15.h,
+      height: 15.h,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width / AppSize.s23,
+        left: MediaQuery.of(context).size.width / 23,
       ),
       child: Text(
         productInfo.subTitle,
@@ -157,8 +153,7 @@ class PriceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width / AppSize.s21),
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 21),
       margin: EdgeInsets.only(
           bottom: 10.h, right: MediaQuery.of(context).size.width / AppSize.s12),
       child: Row(
@@ -195,7 +190,9 @@ class IconButtonWidget extends StatelessWidget {
             // AppCubit.get(context).getAllProducts(productInfo);
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => MyCard(product: productInfo),
+                builder: (context) => const MyCard(
+                    // product: productInfo
+                    ),
               ),
             );
           },

@@ -1,4 +1,4 @@
-import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/hot_sales_cubit/hot_sales_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/build_category_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:ecommerce_shop_app/widgets/hot_sales_widget.dart';

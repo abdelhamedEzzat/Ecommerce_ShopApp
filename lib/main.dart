@@ -1,13 +1,13 @@
-import 'package:ecommerce_shop_app/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/config/theme_data.dart';
-import 'package:ecommerce_shop_app/cubits/hot_sales/hot_sales_cubit.dart';
-import 'package:ecommerce_shop_app/my_old_divison/main_app_view/main_%20home_view/home_view.dart';
+import 'package:ecommerce_shop_app/cubits/category_cubit/category_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/hot_sales_cubit/hot_sales_cubit.dart';
+import 'package:ecommerce_shop_app/screens/main_%20home_view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'my_old_divison/cubit/home_view_cubit.dart';
-import 'my_old_divison/main_app_view/componant_app_widgets/bloc_observer.dart';
+import 'cubits/bloc_observer.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
@@ -23,13 +23,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AppCubit()..initDatabase(),
-        ),
-        BlocProvider(
           create: (context) => CategoryCubit(),
         ),
         BlocProvider(
           create: (context) => HotSalesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CounterCubit(),
         )
       ],
       child: ScreenUtilInit(

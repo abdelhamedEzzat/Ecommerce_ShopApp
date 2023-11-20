@@ -1,7 +1,7 @@
 import 'package:ecommerce_shop_app/screens/see_All_screens/see_all_screen_for_hot_sales.dart';
 import 'package:flutter/material.dart';
 
-import '../my_old_divison/recorses/font_manger.dart';
+import '../config/font_manger.dart';
 
 Widget categorySection(context,
     {required String sectionName, required String seeAll}) {

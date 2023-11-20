@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 
 import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/model/category_model.dart';
-import 'package:ecommerce_shop_app/my_old_divison/recorses/colors_manger.dart';
+import 'package:ecommerce_shop_app/config/colors_manger.dart';
 
 class ProductInfoModel extends Equatable {
   final int id;
@@ -13,16 +13,20 @@ class ProductInfoModel extends Equatable {
   final String subTitle;
   final List<CategoryModel> categoriesType;
   final List<ProductInfoModel>? hotSales;
-  final String price;
+  String price;
   final String? addIcon;
   final int colorProdectImage;
   final String prodectImage;
   final String description;
   final int? currentIndex;
+  final int? index;
+  int count = 1;
+
   final void Function()? onTap;
   int clickCount = 2;
 
   ProductInfoModel({
+    this.index,
     this.hotSales,
     required this.id,
     required this.description,
@@ -46,7 +50,8 @@ class ProductInfoModel extends Equatable {
         colorProdectImage,
         prodectImage,
         currentIndex,
-        description
+        description,
+        index
       ];
 
   static List<ProductInfoModel> products = [
@@ -58,7 +63,7 @@ class ProductInfoModel extends Equatable {
             .toList(),
         title: " iPad Pro",
         subTitle: "Space Gray (6th gen)",
-        price: "199",
+        price: "2",
         colorProdectImage: ColorMangers.yellowgold,
         prodectImage: AssetsImages.mobileImage,
         description:

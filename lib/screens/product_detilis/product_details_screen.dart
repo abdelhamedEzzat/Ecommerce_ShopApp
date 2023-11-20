@@ -1,13 +1,15 @@
 // ignore_for_file: unrelated_type_equality_checks
 
+import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/config/constant.dart';
 import 'package:ecommerce_shop_app/widgets/counter_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../my_old_divison/main_app_view/componant_app_widgets/button_widget.dart';
+import '../../widgets/button_widget.dart';
 import '../my_card/my_card_screen.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -112,11 +114,13 @@ class ProductInformation extends StatelessWidget {
 
           //
           ButtonWidget(
-              nameOfBottom: Constant.addItem,
+              nameOfBotton: Constant.addItem,
               onPress: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => MyCard(product: productinformation),
+                    builder: (context) => const MyCard(
+                        // product: productinformation
+                        ),
                   ),
                 );
               }),
@@ -201,28 +205,39 @@ class PriceAndCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          "\$",
-          style: Theme.of(context)
-              .textTheme
-              .displayMedium!
-              .copyWith(color: Theme.of(context).colorScheme.primaryContainer),
-        ),
-        Container(
-          alignment: Alignment.centerLeft,
-          child: Text(productinformation.price,
+    return BlocBuilder<CounterCubit, CounterState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Text(
+              "\$",
               style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.primaryContainer,
-                  )),
-        ),
-        SizedBox(
-          height: 15.h,
-        ),
-        const Spacer(),
-        const CounterWidget(),
-      ],
+                  color: Theme.of(context).colorScheme.primaryContainer),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                  productinformation.count == 1
+                      ? productinformation.price
+                      : BlocProvider.of<CounterCubit>(context).product,
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      )),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            const Spacer(),
+            CounterWidget(productInfoModel: productinformation),
+          ],
+        );
+      },
     );
   }
 }
+
+    // double cc = double.parse(productinformation.price);
+    //  double ss = cc * BlocProvider.of<CounterCubit>(context).count;
+    // : ss.toString(),
+                  // BlocProvider.of<CounterCubit>(context).count == 1
+                  //     ? productinformation.price
