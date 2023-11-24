@@ -1,6 +1,9 @@
 import 'package:ecommerce_shop_app/widgets/button_widget.dart';
 import 'package:ecommerce_shop_app/widgets/finance_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../cubits/counter_cubit/counter_cubit.dart';
 
 class FinanceDetailsWidget extends StatelessWidget {
   const FinanceDetailsWidget({
@@ -9,66 +12,82 @@ class FinanceDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          alignment: Alignment.topLeft,
-          child: const Text(" Have a coupon code? enter here"),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        TextFormField(
-          decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(vertical: 10),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            FinanceWidget(
-              financeName: "Subtotal:",
-              financeNumber: "4,521",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            FinanceWidget(
-              financeName: "DeliveryFree:",
-              financeNumber: "5",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            FinanceWidget(
-              financeName: "Discount:",
-              financeNumber: "25%",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: CustomPaint(
-                size: Size(MediaQuery.of(context).size.width,
-                    1), // Adjust the size as needed
-                painter: DashedLinePainter(), // Custom painter
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.topLeft,
+            child: const Text(" Have a coupon code? enter here"),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          TextFormField(
+            textAlign: TextAlign.left,
+            enabled: false,
+            decoration: InputDecoration(
+                hintText: "     Soon * ",
+                hintStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.red),
+                contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10))),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              FinanceWidget(
+                financeName: "Subtotal:",
+                financeNumber:
+                    " ${BlocProvider.of<CounterCubit>(context).subTotal} ",
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-            ),
-            FinanceWidget(
-              financeName: "Total:",
-              financeNumber: "4,458.50",
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: Theme.of(context).colorScheme.primaryContainer),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            ButtonWidget(
-              nameOfBotton: "Continue to Checkout",
-              onPress: () {},
-            )
-          ],
-        )
-      ],
+              FinanceWidget(
+                financeName: "DeliveryFee:",
+                financeNumber:
+                    "  ${BlocProvider.of<CounterCubit>(context).deliveryFee} ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              FinanceWidget(
+                financeName: "Discount:",
+                financeNumber:
+                    " ${BlocProvider.of<CounterCubit>(context).discount} ",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: CustomPaint(
+                  size: Size(MediaQuery.of(context).size.width, 1),
+
+                  // Adjust the size as needed
+                  // Custom painter
+
+                  painter: DashedLinePainter(),
+                ),
+              ),
+              FinanceWidget(
+                financeName: "Total:",
+                financeNumber:
+                    "${BlocProvider.of<CounterCubit>(context).total}",
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.primaryContainer),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              ButtonWidget(
+                nameOfBotton: "Continue to Checkout",
+                onPress: () {},
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

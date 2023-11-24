@@ -21,6 +21,7 @@ class ProductInfoModel extends Equatable {
   final int? currentIndex;
   final int? index;
   int count = 1;
+  String priceProduct = "";
 
   final void Function()? onTap;
   int clickCount = 2;
@@ -56,7 +57,7 @@ class ProductInfoModel extends Equatable {
 
   static List<ProductInfoModel> products = [
     ProductInfoModel(
-        id: 1,
+        id: 0,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Mobile")
@@ -70,14 +71,14 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 2,
+        id: 1,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Computers")
             .toList(),
         title: "Magic Wireless",
         subTitle: "iPad Pro 12.9-Inch",
-        price: "199",
+        price: "5",
         colorProdectImage: ColorMangers.yellowgold,
         prodectImage: AssetsImages.computer,
         description:
@@ -85,7 +86,7 @@ class ProductInfoModel extends Equatable {
 
     //
     ProductInfoModel(
-        id: 3,
+        id: 2,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Mobile")
@@ -99,7 +100,7 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 4,
+        id: 3,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Headsets")
@@ -113,12 +114,12 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 5,
+        id: 4,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Computers")
             .toList(),
-        title: "Magic Wireless",
+        title: "Magic Wireless s",
         subTitle: "iPad Pro 12.9-Inch",
         price: "199",
         colorProdectImage: ColorMangers.yellowgold,
@@ -127,7 +128,7 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 6,
+        id: 5,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Headsets")
@@ -141,7 +142,7 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 7,
+        id: 6,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Speakers")
@@ -155,7 +156,7 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 8,
+        id: 7,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Headsets")
@@ -169,12 +170,12 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 9,
+        id: 8,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Speakers")
             .toList(),
-        title: "AirPods Max 6",
+        title: "AirPods Max 6 s",
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,
@@ -183,12 +184,12 @@ class ProductInfoModel extends Equatable {
             'Apple-designed dynamic driver provides high-fidelity audio.Note : If the size of the earbud tips does not match the size of your ear canals or the headset is not worn properly in your ears, you may not obtain the correct sound qualities or call performance. Change the earbud tips to ones that fit more snugly in your ear'),
     //
     ProductInfoModel(
-        id: 10,
+        id: 9,
         categoriesType: CategoryModel.categories
             .where((name) =>
                 name.categoryName == "All" || name.categoryName == "Speakers")
             .toList(),
-        title: "AirPods Max 6 ",
+        title: "AirPods Max 6 pro ",
         subTitle: "Winning Beats sound",
         price: "199",
         colorProdectImage: ColorMangers.semiPink,

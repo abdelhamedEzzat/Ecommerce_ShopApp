@@ -74,7 +74,9 @@ class ProductImageAndBackgroundColor extends StatelessWidget {
         color: Color(
           productDetails.colorProdectImage,
         ),
-        child: Image.asset(productDetails.prodectImage),
+        child: Image.asset(
+          productDetails.prodectImage,
+        ),
       ),
     );
   }
@@ -118,11 +120,17 @@ class ProductInformation extends StatelessWidget {
               onPress: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MyCard(
-                        // product: productinformation
-                        ),
+                    builder: (context) => MyCard(
+                      productInfoModel: productinformation,
+                      // product: productinformation
+                    ),
                   ),
                 );
+                BlocProvider.of<CounterCubit>(context)
+                    .addItemToBag(productinformation);
+                BlocProvider.of<CounterCubit>(context).finance();
+                BlocProvider.of<CounterCubit>(context).financeDeliveryFee();
+                BlocProvider.of<CounterCubit>(context).totalFinance();
               }),
         ],
       ),
@@ -218,8 +226,9 @@ class PriceAndCount extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                   productinformation.count == 1
-                      ? productinformation.price
-                      : BlocProvider.of<CounterCubit>(context).product,
+                      ? productinformation.priceProduct =
+                          productinformation.price
+                      : productinformation.priceProduct,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                       )),
@@ -236,8 +245,8 @@ class PriceAndCount extends StatelessWidget {
   }
 }
 
-    // double cc = double.parse(productinformation.price);
-    //  double ss = cc * BlocProvider.of<CounterCubit>(context).count;
-    // : ss.toString(),
-                  // BlocProvider.of<CounterCubit>(context).count == 1
-                  //     ? productinformation.price
+// double cc = double.parse(productinformation.price);
+//  double ss = cc * BlocProvider.of<CounterCubit>(context).count;
+// : ss.toString(),
+// BlocProvider.of<CounterCubit>(context).count == 1
+//     ? productinformation.price

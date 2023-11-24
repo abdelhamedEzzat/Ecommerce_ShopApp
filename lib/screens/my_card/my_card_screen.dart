@@ -1,12 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:ecommerce_shop_app/widgets/finance_details_widget.dart';
+import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
+import 'package:ecommerce_shop_app/widgets/counter_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
+import 'package:ecommerce_shop_app/widgets/finance_details_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+  final ProductInfoModel productInfoModel;
+  const MyCard({
+    Key? key,
+    required this.productInfoModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,102 +22,116 @@ class MyCard extends StatelessWidget {
       appBar: const CustomAppBar(
         title: Text("MyCard"),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 5,
-              child: Column(
-                children: [
-                  CardProductWidget(),
-                  Divider(
-                    color: Colors.black54,
+      body: BlocBuilder<CounterCubit, CounterState>(
+        builder: (context, state) {
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 5,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: BlocProvider.of<CounterCubit>(context)
+                        .selectedProducts
+                        .length,
+                    itemBuilder: (context, index) =>
+                        CardProductWidget(productInfoModel: productInfoModel),
                   ),
-                  CardProductWidget(),
-                  Divider(
-                    color: Colors.black54,
-                  ),
-                ],
-              ),
+                ),
+                const Expanded(
+                  flex: 4,
+                  child: FinanceDetailsWidget(),
+                )
+              ],
             ),
-            Expanded(
-              flex: 4,
-              child: FinanceDetailsWidget(),
-            )
-          ],
-        ),
+          );
+        },
       ),
     );
   }
 }
 
 class CardProductWidget extends StatelessWidget {
+  final ProductInfoModel productInfoModel;
   const CardProductWidget({
-    super.key,
-  });
+    Key? key,
+    required this.productInfoModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
       children: [
-        Container(
-          alignment: Alignment.topLeft,
-          child: Image.asset(
-            "assets/images/computer.png",
-          ),
-        ),
-        Expanded(
-          child: ListTile(
-            iconColor: Colors.black,
-            contentPadding: const EdgeInsets.only(top: 20),
-            title: Text("Macbook Pro M1 Pro",
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: Theme.of(context).colorScheme.onSurface)),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("14-inch, with 14 core",
-                    style: Theme.of(context).textTheme.bodyLarge),
-
-                //todo this row will be PriceAndCount widget
-
-                Row(
-                  children: [
-                    Text("\$",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineLarge!
-                            .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSurface)),
-                    Text("2.867",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineLarge!
-                            .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSurface)),
-                    const Spacer(),
-                    //   const CounterWidget(),
-                  ],
-                )
-              ],
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Image.asset(
+                productInfoModel.prodectImage,
+              ),
             ),
-            isThreeLine: true,
-          ),
-        )
+            Expanded(
+              child: ListTile(
+                iconColor: Colors.black,
+                contentPadding: const EdgeInsets.only(top: 20),
+                title: Text(productInfoModel.title,
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(productInfoModel.subTitle,
+                        style: Theme.of(context).textTheme.bodyLarge),
+
+                    //todo this row will be PriceAndCount widget
+
+                    Row(
+                      children: [
+                        Text("\$",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface)),
+                        Text(
+                            productInfoModel.count == 1
+                                ? productInfoModel.priceProduct =
+                                    productInfoModel.price
+                                : productInfoModel.priceProduct,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface)),
+                        const Spacer(),
+                        CounterWidget(
+                          productInfoModel: productInfoModel,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                isThreeLine: true,
+              ),
+            )
+          ],
+        ),
+        const Divider(
+          color: Colors.black54,
+        ),
       ],
     );
   }
 }
-
-
 
 // Delivery Free:
 // Discount:

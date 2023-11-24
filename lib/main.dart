@@ -2,7 +2,7 @@ import 'package:ecommerce_shop_app/config/theme_data.dart';
 import 'package:ecommerce_shop_app/cubits/category_cubit/category_cubit.dart';
 import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/cubits/hot_sales_cubit/hot_sales_cubit.dart';
-import 'package:ecommerce_shop_app/screens/main_%20home_view/home_view.dart';
+import 'package:ecommerce_shop_app/screens/multiLoginPage/MultiLoginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: theme(),
-            home: const HomeView(),
+            home: const MultiLoginPage(),
           );
         },
       ),

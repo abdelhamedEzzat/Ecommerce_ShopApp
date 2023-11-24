@@ -7,30 +7,40 @@ part 'counter_state.dart';
 class CounterCubit extends Cubit<CounterState> {
   CounterCubit() : super(CounterInitial());
 
-  double finalProduct = 0;
   List<ProductInfoModel> prouduct = ProductInfoModel.products;
-  int index = 0;
-  String product = '';
+  final result = 0;
 
+  String pro = "";
+  Set<ProductInfoModel> selectedProducts = {};
+  double subTotal = 0;
+  double initial = 0;
+  double deliveryFee = 5;
+  double discount = 25;
+  double total = 0;
+  String d = "";
   //
   //  This Function For Increment counter in CounterWidget
-  // in Product details Screen
+  //  in Product details Screen
   //
-  void increment() {
-    int count = prouduct[index].count++;
+  void increment(ProductInfoModel productInfoModel) {
+    int indexOfProduct = prouduct.indexOf(productInfoModel);
+
+    int count = prouduct[indexOfProduct].count++;
 
     emit(CounterIncrementLoaded(count));
   }
 
   //
   //  This Function For Decrement counter in CounterWidget
-  // in Product details Screen
+  //  in Product details Screen
   //
-  decrement() {
-    if (prouduct[index].count == 1) {
-      return prouduct[index].count = 1;
+
+  decrement(ProductInfoModel productInfoModel) {
+    int indexOfProduct = prouduct.indexOf(productInfoModel);
+    if (prouduct[indexOfProduct].count == 1) {
+      return prouduct[indexOfProduct].count = 1;
     } else {
-      int counts = prouduct[index].count--;
+      int counts = prouduct[indexOfProduct].count--;
       emit(CounterDecrementLoaded(counts));
     }
   }
@@ -40,23 +50,76 @@ class CounterCubit extends Cubit<CounterState> {
   //  globel variable i used to see changed in ui (product)  in Product details Screen
   //
 
-  priceIncrement() {
-    double price = double.tryParse(prouduct[index].price) ?? 0.0;
-    product = (price * prouduct[index].count).toString();
+  priceIncrement(ProductInfoModel productInfoModel) {
+    int indexOfProduct = prouduct.indexOf(productInfoModel);
+    double price = double.tryParse(prouduct[indexOfProduct].price) ?? 0.0;
 
-    emit(CounterincrementPrice(product));
+    productInfoModel.priceProduct =
+        (price * prouduct[indexOfProduct].count).toString();
+
+    emit(CounterincrementPrice(productInfoModel.priceProduct));
   }
 
   //
   //  This Function For decrement Price in CounterWidget
-  // globel variable i used to see changed in ui (product)  in Product details Screen
+  //  globel variable i used to see changed in ui (product)  in Product details Screen
   //
 
-  priceDecrement() {
-    double price = double.tryParse(prouduct[index].price) ?? 0.0;
+  priceDecrement(ProductInfoModel productInfoModel) {
+    int indexOfProduct = prouduct.indexOf(productInfoModel);
+    double price = double.tryParse(prouduct[indexOfProduct].price) ?? 0.0;
+    if (productInfoModel.count == 1) {
+      productInfoModel.priceProduct = productInfoModel.price;
+    } else {
+      productInfoModel.priceProduct =
+          (double.parse(productInfoModel.priceProduct) - price).toString();
+    }
 
-    product = (double.parse(product) - price).toString();
+    emit(CounterdecrementPrice(productInfoModel.priceProduct));
+  }
 
-    emit(CounterdecrementPrice(product));
+//
+//
+//
+//
+  addItemToBag(ProductInfoModel productInfoModel) {
+    int indexOfProduct = prouduct.indexOf(productInfoModel);
+
+    if (productInfoModel.id == indexOfProduct) {
+      selectedProducts.addAll(prouduct
+          .where(
+            (element) => element.id == indexOfProduct,
+          )
+          .toList()
+          .toSet());
+    }
+
+    emit(PriceList(selectedProducts));
+  }
+
+  finance() {
+    subTotal = selectedProducts.fold(
+      initial,
+      (previousValue, element) =>
+          previousValue + double.parse(element.priceProduct),
+    );
+
+    emit(Finance(subTotal));
+  }
+
+  financeDeliveryFee() {
+    if (selectedProducts.length == 1) {
+      deliveryFee = 5;
+    } else if (selectedProducts.length > 1) {
+      deliveryFee = 10;
+    }
+
+    emit(Finance(subTotal));
+  }
+
+  totalFinance() {
+    total = subTotal + deliveryFee;
+    total = total - (0.25 * total);
+    emit(Finance(subTotal));
   }
 }

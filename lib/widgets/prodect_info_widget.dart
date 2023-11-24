@@ -190,9 +190,9 @@ class IconButtonWidget extends StatelessWidget {
             // AppCubit.get(context).getAllProducts(productInfo);
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const MyCard(
-                    // product: productInfo
-                    ),
+                builder: (context) => MyCard(
+                  productInfoModel: productInfo,
+                ),
               ),
             );
           },

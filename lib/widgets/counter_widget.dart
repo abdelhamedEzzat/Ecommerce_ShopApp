@@ -19,8 +19,10 @@ class CounterWidget extends StatelessWidget {
           children: [
             IconButton(
                 onPressed: () {
-                  BlocProvider.of<CounterCubit>(context).decrement();
-                  BlocProvider.of<CounterCubit>(context).priceDecrement();
+                  BlocProvider.of<CounterCubit>(context)
+                      .decrement(productInfoModel);
+                  BlocProvider.of<CounterCubit>(context)
+                      .priceDecrement(productInfoModel);
                 },
                 icon: Icon(
                   Icons.do_not_disturb_on_outlined,
@@ -34,8 +36,10 @@ class CounterWidget extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   //
-                  BlocProvider.of<CounterCubit>(context).increment();
-                  BlocProvider.of<CounterCubit>(context).priceIncrement();
+                  BlocProvider.of<CounterCubit>(context)
+                      .increment(productInfoModel);
+                  BlocProvider.of<CounterCubit>(context)
+                      .priceIncrement(productInfoModel);
                   //  print();
                 },
                 icon: Icon(
