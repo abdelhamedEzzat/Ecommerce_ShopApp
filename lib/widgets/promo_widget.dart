@@ -43,7 +43,7 @@ class _PromoCard extends StatelessWidget {
       height: mediaQuery.size.height / 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).colorScheme.surface,
+        color: Theme.of(context).colorScheme.primaryContainer,
       ),
       margin: EdgeInsets.only(
         left: mediaQuery.size.width / 20.w,

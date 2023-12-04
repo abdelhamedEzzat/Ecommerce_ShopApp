@@ -10,6 +10,14 @@ import 'package:ecommerce_shop_app/widgets/finance_details_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCard extends StatelessWidget {
+  static const String routeName = "My Card";
+  static Route route(ProductInfoModel productInfoModel) {
+    return MaterialPageRoute(
+      builder: (_) => MyCard(productInfoModel: productInfoModel),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   final ProductInfoModel productInfoModel;
   const MyCard({
     Key? key,

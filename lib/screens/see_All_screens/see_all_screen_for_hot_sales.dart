@@ -7,6 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SeeAllScreen extends StatelessWidget {
+  static const String routeName = "SeeAllScreen";
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const SeeAllScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   const SeeAllScreen({super.key});
 
   @override

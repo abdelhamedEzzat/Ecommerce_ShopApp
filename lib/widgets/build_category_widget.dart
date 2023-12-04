@@ -16,11 +16,13 @@ class BuildCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ProductDetails(
-            products: productInfoModel,
-          ),
-        ));
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => ProductDetails(
+        //     products: productInfoModel,
+        //   ),
+        // )
+        Navigator.of(context)
+            .pushNamed(ProductDetails.routeName, arguments: productInfoModel);
       },
       child: Container(
           margin: const EdgeInsets.only(),

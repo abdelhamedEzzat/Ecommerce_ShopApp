@@ -12,12 +12,15 @@ class CounterCubit extends Cubit<CounterState> {
 
   String pro = "";
   Set<ProductInfoModel> selectedProducts = {};
+  Set<ProductInfoModel> favoriteProducts = {};
   double subTotal = 0;
   double initial = 0;
   double deliveryFee = 5;
   double discount = 25;
   double total = 0;
   String d = "";
+  // bool favorite = false;
+
   //
   //  This Function For Increment counter in CounterWidget
   //  in Product details Screen
@@ -123,3 +126,9 @@ class CounterCubit extends Cubit<CounterState> {
     emit(Finance(subTotal));
   }
 }
+// favoriteProducts.addAll(prouduct
+//           .where(
+//             (element) => element.id == indexOfProduct,
+//           )
+//           .toList()
+//           .toSet());

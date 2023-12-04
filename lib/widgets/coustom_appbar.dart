@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
+
   const CustomAppBar({
     Key? key,
     required this.title,
@@ -10,25 +12,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.white),
+      backgroundColor: Theme.of(context).colorScheme.primary,
       elevation: 0,
-      leading: Builder(builder: (BuildContext context) {
-        if (ModalRoute.of(context)?.settings.name != null) {
-          return IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          );
-        } else {
-          return IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          );
-        }
-      }),
       title: title,
+      titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18),
       actions: [
         Center(
           child: IconButton(

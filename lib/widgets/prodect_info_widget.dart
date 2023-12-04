@@ -80,8 +80,8 @@ class TitleInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 5),
-      height: AppSize.s14.h,
+      margin: const EdgeInsets.only(bottom: 6),
+      height: AppSize.s16.h,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.only(
         left: MediaQuery.of(context).size.width / 23,

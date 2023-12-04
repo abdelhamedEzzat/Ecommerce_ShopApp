@@ -1,6 +1,7 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/favorite_icon_cubit/favorite_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/config/constant.dart';
 import 'package:ecommerce_shop_app/widgets/counter_widget.dart';
@@ -12,18 +13,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widgets/button_widget.dart';
 import '../my_card/my_card_screen.dart';
 
-class ProductDetails extends StatefulWidget {
+class ProductDetails extends StatelessWidget {
+  static const String routeName = "ProductDetails";
+  static Route route(ProductInfoModel products) {
+    return MaterialPageRoute(
+      builder: (_) => ProductDetails(products: products),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   const ProductDetails({
     super.key,
     required this.products,
   });
   final ProductInfoModel products;
 
-  @override
-  State<ProductDetails> createState() => _ProductDetailsState();
-}
-
-class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               //first half of screen for image of product and backGroundColor For it
 
               ProductImageAndBackgroundColor(
-                productDetails: widget.products,
+                productDetails: products,
               ),
               SizedBox(
                 height: 25.h,
@@ -49,7 +53,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               //that every  items is in single class .
 
               ProductInformation(
-                productinformation: widget.products,
+                productinformation: products,
               )
             ]),
       ),
@@ -118,14 +122,16 @@ class ProductInformation extends StatelessWidget {
           ButtonWidget(
               nameOfBotton: Constant.addItem,
               onPress: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MyCard(
-                      productInfoModel: productinformation,
-                      // product: productinformation
-                    ),
-                  ),
-                );
+                Navigator.of(context)
+                    .pushNamed(MyCard.routeName, arguments: productinformation);
+                // .push(
+                //   MaterialPageRoute(
+                //     builder: (context) => MyCard(
+                //       productInfoModel: productinformation,
+                //       // product: productinformation
+                //     ),
+                //   ),
+                // );
                 BlocProvider.of<CounterCubit>(context)
                     .addItemToBag(productinformation);
                 BlocProvider.of<CounterCubit>(context).finance();
@@ -167,17 +173,41 @@ class TitleAndFavoriteIcons extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-            child: Container(
+        Expanded(child: BlocBuilder<FavoriteCubit, FavoriteState>(
+          builder: (context, state) {
+            return Container(
                 alignment: Alignment.centerRight,
                 height: 50.h,
                 child: GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.favorite_border_sharp,
-                    size: 45,
-                  ),
-                )))
+                    // onSecondaryTap: () {
+                    //   BlocProvider.of<CounterCubit>(context).favorite = false;
+                    // },
+                    onTap: () {
+                      if (productinformation.favorite == false) {
+                        BlocProvider.of<FavoriteCubit>(context)
+                            .favoriteItemsTrue(productinformation);
+                        print(productinformation.favorite);
+                        print(BlocProvider.of<FavoriteCubit>(context)
+                            .favoriteProducts
+                            .length);
+                      } else if (productinformation.favorite == true) {
+                        BlocProvider.of<FavoriteCubit>(context)
+                            .favoriteItemsFalse(productinformation);
+                        print(productinformation.favorite);
+                        print(
+                            "ssssssssssssssssssssss${BlocProvider.of<FavoriteCubit>(context).favoriteProducts.length}");
+                      }
+                    },
+                    child: productinformation.favorite == false
+                        ? const Icon(Icons.favorite_border_sharp,
+                            size: 45, color: Colors.black)
+                        : const Icon(
+                            Icons.favorite,
+                            size: 45,
+                            color: Colors.red,
+                          )));
+          },
+        ))
       ],
     );
   }

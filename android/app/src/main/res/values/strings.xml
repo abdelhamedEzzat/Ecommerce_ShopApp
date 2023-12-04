@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">customer_shop_app</string>
+<string name="facebook_app_id">305568435786021</string>
+<string name="fb_login_protocol_scheme">fb305568435786021</string>
+<string name="facebook_client_token">722e165252c7c5b7000259558b5d8b43</string>
+</resources>
+

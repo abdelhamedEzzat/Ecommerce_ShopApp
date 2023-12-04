@@ -12,7 +12,7 @@ ThemeData theme() {
       onPrimary: Color(0xFFFFFFFF),
 
       // for promo back ground color  and button color
-      surface: Color(0xff843667),
+      surface: Color(0xFFFFFFFF),
 
       // for Text Color
       onPrimaryContainer: Color(0xff8D969F),
@@ -23,7 +23,7 @@ ThemeData theme() {
       onSecondaryContainer: Color(0xffFFDCBC),
 
       // backGroundColor in card
-      background: Color(0xff20ACFD),
+      background: Color(0xFFFFFFFF),
       onBackground: Color(0xffE8F6FB),
 
       // error text  color
@@ -57,7 +57,7 @@ ThemeData theme() {
         fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
-      titleMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+      titleMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
       headlineSmall: TextStyle(
         fontWeight: FontWeight.normal,
         fontSize: 14,

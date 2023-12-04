@@ -14,4 +14,7 @@ class AssetsImages {
   static const String addIcon = "$path/icons/add.png";
   static const String bagIcons = "$path/icons/bag.png";
   static const String mobileIcon = "$path/icons/mobile.png";
+  static const String googleIcon = "$path/icons/google_logo.png";
+  static const String facebookIcon = "$path/icons/facebook-logo.png";
+  static const String leterIcon = "$path/icons/leter_image.jpg";
 }
