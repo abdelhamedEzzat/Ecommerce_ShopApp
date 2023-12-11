@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'favorite_state.dart';
 
@@ -8,32 +8,23 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   FavoriteCubit() : super(FavoriteInitial());
 
   List<ProductInfoModel> prouduct = ProductInfoModel.products;
-  Set<ProductInfoModel> favoriteProducts = {};
-
-  void favoriteItemsTrue(ProductInfoModel productInfoModel) {
+  List<ProductInfoModel> favoriteProducts = [];
+  void addfavoriteItems(ProductInfoModel productInfoModel) {
     int indexOfProduct = prouduct.indexOf(productInfoModel);
     if (prouduct[indexOfProduct].favorite == false) {
       prouduct[indexOfProduct].favorite = true;
       favoriteProducts.add(productInfoModel);
+    }
 
-      // All(prouduct
-      //     .where(
-      //       (element) => element.favorite == true,
-      //     )
-      //     .toList()
-      //     .toSet());
-    } else {}
-
-    emit(FavoriteLoaded(productInfoModel));
+    emit(AddFavoriteLoaded(productInfoModel));
   }
 
-  void favoriteItemsFalse(ProductInfoModel productInfoModel) {
+  void removefavoriteItems(ProductInfoModel productInfoModel) {
     int indexOfProduct = prouduct.indexOf(productInfoModel);
     if (prouduct[indexOfProduct].favorite == true) {
       prouduct[indexOfProduct].favorite = false;
-      // favoriteProducts.removeWhere((element) => element.favorite == false);
-      favoriteProducts.removeWhere((element) => element.favorite == false);
+      favoriteProducts.remove(productInfoModel);
     }
-    emit(FavoriteLoaded2(productInfoModel));
+    emit(RemoveFavoriteLoaded(productInfoModel));
   }
 }

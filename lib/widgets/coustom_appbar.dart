@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
-
+  final Widget? icon;
   const CustomAppBar({
     Key? key,
     required this.title,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -18,12 +19,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18),
       actions: [
-        Center(
-          child: IconButton(
-            onPressed: () {},
-            icon: Image.asset("assets/icons/bag.png"),
+        if (icon != null) // Check if icon is not null before adding it
+          Center(
+            child: IconButton(
+              onPressed: () {},
+              icon: icon!,
+            ),
           ),
-        )
       ],
     );
   }

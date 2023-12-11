@@ -1,4 +1,6 @@
+import 'package:ecommerce_shop_app/cubits/text_field/text_field_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../config/colors_manger.dart';
@@ -11,11 +13,15 @@ class DrawerClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: SingleChildScrollView(
-        child: Column(children: [
-          buildHeader(context),
-          buildMenuItems(context),
-        ]),
+      child: BlocBuilder<TextFieldCubit, TextFieldState>(
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Column(children: [
+              buildHeader(context),
+              buildMenuItems(context),
+            ]),
+          );
+        },
       ),
     );
   }
@@ -31,27 +37,36 @@ Widget buildHeader(BuildContext context) {
       bottom: 35.h,
       top: 36.h,
     ),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const CircleAvatar(
-        radius: 52,
-        backgroundImage: AssetImage(AssetsImages.personImage),
-      ),
-      SizedBox(
-        height: 12.h,
-      ),
-      Text(
-        DrawerConstans.welcome,
-        style: Theme.of(context).textTheme.titleSmall,
-      ),
-      Text(
-        DrawerConstans.userName,
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-      Text(
-        DrawerConstans.email,
-        style: Theme.of(context).textTheme.titleSmall,
-      ),
-    ]),
+    child: BlocBuilder<TextFieldCubit, TextFieldState>(
+      builder: (context, state) {
+        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const CircleAvatar(
+            radius: 52,
+            backgroundImage: AssetImage(AssetsImages.personImage),
+          ),
+          SizedBox(
+            height: 12.h,
+          ),
+          Text(
+            DrawerConstans.welcome,
+            style: Theme.of(context).textTheme.titleSmall!
+                .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+          ),
+          Text(
+            BlocProvider.of<TextFieldCubit>(context).nameContraller.text,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+          ),
+          Text(
+            BlocProvider.of<TextFieldCubit>(context).emailContraller.text,
+            style: Theme.of(context).textTheme.titleSmall!
+                .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+          ),
+        ]);
+      },
+    ),
   );
 }
 

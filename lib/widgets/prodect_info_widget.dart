@@ -1,9 +1,11 @@
+import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/config/colors_manger.dart';
 import 'package:ecommerce_shop_app/config/font_manger.dart';
 import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/screens/my_card/my_card_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //
@@ -184,21 +186,15 @@ class IconButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: IconButton(
-          onPressed: () {
-            // AppCubit.get(context).insertProduct(productInfo);
-            // AppCubit.get(context).getAllProducts(productInfo);
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => MyCard(
-                  productInfoModel: productInfo,
-                ),
-              ),
-            );
-          },
-          icon: Image.asset(
-            AssetsImages.addIcon,
-          )),
+      child: BlocBuilder<CounterCubit, CounterState>(
+        builder: (context, state) {
+          return IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                AssetsImages.addIcon,
+              ));
+        },
+      ),
     );
   }
 }

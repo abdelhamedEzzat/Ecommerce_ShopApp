@@ -1,6 +1,7 @@
 import 'package:ecommerce_shop_app/config/constant.dart';
 import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/cubits/hot_sales_cubit/hot_sales_cubit.dart';
+import 'package:ecommerce_shop_app/cubits/text_field/text_field_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/category_section_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:ecommerce_shop_app/widgets/custom_drawer_widget.dart';
@@ -29,12 +30,17 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar(
+          icon: Image.asset(AssetsImages.bagIcons),
           title: Center(
             child:
                 Image.asset(AssetsImages.logoImage, height: 24.h, width: 104.w),
           ),
         ),
-        drawer: const Stack(children: [DrawerClass()]),
+        drawer: BlocBuilder<TextFieldCubit, TextFieldState>(
+          builder: (context, state) {
+            return Stack(children: [DrawerClass()]);
+          },
+        ),
         body: SingleChildScrollView(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
           SizedBox(

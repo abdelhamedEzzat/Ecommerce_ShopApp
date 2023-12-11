@@ -52,14 +52,3 @@ class CounterWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-  // print(
-                  //     'PROD SSSSSSSSSSSSSSSSSSSSS ${productInfoModel.price[0]}');
-                  // BlocProvider.of<CounterCubit>(context)
-                  //     .priceOfProduct(productInfoModel);
-
-                  //  print(BlocProvider.of<CounterCubit>(context).count);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: const Color(0xfff6f6f6),
+    scaffoldBackgroundColor: const Color(0xffE8F6FB),
     colorScheme: const ColorScheme(
       // for brightness
       brightness: Brightness.light,
@@ -36,8 +36,8 @@ ThemeData theme() {
     fontFamily: "Poppins",
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 36,
+        fontWeight: FontWeight.normal,
+        fontSize: 34,
       ),
       displayMedium: TextStyle(
         fontWeight: FontWeight.w600,

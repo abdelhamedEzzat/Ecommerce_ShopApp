@@ -17,4 +17,8 @@ class AssetsImages {
   static const String googleIcon = "$path/icons/google_logo.png";
   static const String facebookIcon = "$path/icons/facebook-logo.png";
   static const String leterIcon = "$path/icons/leter_image.jpg";
+  static const String creaditIcon = "$path/icons/credit.png";
+  static const String mezaIcon = "$path/icons/meza.png";
+  static const String masterCard = "$path/icons/mastercard.jpg";
+  static const String visa = "$path/icons/visa.png";
 }

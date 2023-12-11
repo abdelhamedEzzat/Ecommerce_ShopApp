@@ -23,6 +23,7 @@ class ProductInfoModel extends Equatable {
   bool favorite;
   int count = 1;
   String priceProduct = "";
+  double total = 0;
 
   final void Function()? onTap;
   int clickCount = 2;
@@ -68,7 +69,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: " iPad Pro",
       subTitle: "Space Gray (6th gen)",
-      price: "2",
+      price: "2.00",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.mobileImage,
       description:
@@ -84,7 +85,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "Magic Wireless",
       subTitle: "iPad Pro 12.9-Inch",
-      price: "5",
+      price: "5.00",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.computer,
       description:
@@ -101,7 +102,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "Apple iPad Pro",
       subTitle: "Space Gray (6th gen)",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.mobileImage,
       description:
@@ -117,7 +118,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 5s",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.headPhoneImage,
       description:
@@ -133,7 +134,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "Magic Wireless s",
       subTitle: "iPad Pro 12.9-Inch",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.computer,
       description:
@@ -149,7 +150,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 5",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.yellowgold,
       prodectImage: AssetsImages.headPhoneImage,
       description:
@@ -165,7 +166,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 6",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.semiPink,
       prodectImage: AssetsImages.appStoreImage,
       description:
@@ -181,7 +182,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 5 pro",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.semiPink,
       prodectImage: AssetsImages.headPhoneImage,
       description:
@@ -196,7 +197,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 6 s",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.semiPink,
       prodectImage: AssetsImages.appStoreImage,
       description:
@@ -211,7 +212,7 @@ class ProductInfoModel extends Equatable {
           .toList(),
       title: "AirPods Max 6 pro ",
       subTitle: "Winning Beats sound",
-      price: "199",
+      price: "199.0",
       colorProdectImage: ColorMangers.semiPink,
       prodectImage: AssetsImages.appStoreImage,
       description:

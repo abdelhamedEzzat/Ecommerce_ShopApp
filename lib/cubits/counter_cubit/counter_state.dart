@@ -53,10 +53,10 @@ final class PriceList extends CounterState {
 }
 
 final class Finance extends CounterState {
-  final double product;
+  final double totalPriceOfProduct;
 
-  const Finance(this.product);
+  const Finance(this.totalPriceOfProduct);
 
   @override
-  List<Object> get props => [product];
+  List<Object> get props => [totalPriceOfProduct];
 }

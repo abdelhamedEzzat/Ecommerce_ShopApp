@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/counter_widget.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,9 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: Text("MyCard"),
+      appBar: CustomAppBar(
+        icon: Image.asset(AssetsImages.bagIcons),
+        title: const Text("MyCard"),
       ),
       body: BlocBuilder<CounterCubit, CounterState>(
         builder: (context, state) {
@@ -49,9 +51,10 @@ class MyCard extends StatelessWidget {
                         CardProductWidget(productInfoModel: productInfoModel),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   flex: 4,
-                  child: FinanceDetailsWidget(),
+                  child:
+                      FinanceDetailsWidget(productInfoModel: productInfoModel),
                 )
               ],
             ),

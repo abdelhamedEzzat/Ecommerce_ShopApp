@@ -13,13 +13,12 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarState> {
   BottomNavigationBarCubit() : super(BottomNavigationBarInitial());
 
   int currentIndex = 0;
-  var prd = ProductInfoModel;
 
-  List<Widget> pages = const [
-    HomeScreen(),
-    FavoriteScreen(),
-    LocationScreen(),
-    PersonalScreen()
+  List<String> pages = const [
+    HomeScreen.routeName,
+    FavoriteScreen.routeName,
+    LocationScreen.routeName,
+    PersonalScreen.routeName
   ];
 
   changeIndex(

@@ -101,13 +101,19 @@ class CounterCubit extends Cubit<CounterState> {
   }
 
   finance() {
-    subTotal = selectedProducts.fold(
-      initial,
-      (previousValue, element) =>
-          previousValue + double.parse(element.priceProduct),
-    );
+    try {
+      subTotal = selectedProducts.fold(
+        initial,
+        (previousValue, element) {
+          double productPrice = double.tryParse(element.priceProduct) ?? 0.0;
+          return previousValue + productPrice;
+        },
+      );
 
-    emit(Finance(subTotal));
+      emit(Finance(subTotal));
+    } catch (e) {
+      print("Error calculating finance: $e");
+    }
   }
 
   financeDeliveryFee() {
@@ -120,10 +126,12 @@ class CounterCubit extends Cubit<CounterState> {
     emit(Finance(subTotal));
   }
 
-  totalFinance() {
-    total = subTotal + deliveryFee;
-    total = total - (0.25 * total);
-    emit(Finance(subTotal));
+  totalFinance(ProductInfoModel productInfoModel) {
+    productInfoModel.total = subTotal + deliveryFee;
+    productInfoModel.total =
+        productInfoModel.total - (0.25 * productInfoModel.total);
+    total = productInfoModel.total;
+    emit(Finance(total));
   }
 }
 // favoriteProducts.addAll(prouduct

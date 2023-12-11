@@ -9,18 +9,32 @@ sealed class FavoriteState extends Equatable {
 
 final class FavoriteInitial extends FavoriteState {}
 
-final class FavoriteLoaded extends FavoriteState {
-  final ProductInfoModel isFavorite;
-
-  const FavoriteLoaded(this.isFavorite);
+final class FavoriteLoading extends FavoriteState {
+  const FavoriteLoading();
   @override
-  List<Object> get props => [isFavorite];
+  List<Object> get props => [];
 }
 
-final class FavoriteLoaded2 extends FavoriteState {
-  final ProductInfoModel isFavorite2;
+final class AddFavoriteLoaded extends FavoriteState {
+  final ProductInfoModel addFavorite;
 
-  const FavoriteLoaded2(this.isFavorite2);
+  const AddFavoriteLoaded(this.addFavorite);
   @override
-  List<Object> get props => [isFavorite2];
+  List<Object> get props => [addFavorite];
 }
+
+final class RemoveFavoriteLoaded extends FavoriteState {
+  final ProductInfoModel removeFavorite;
+
+  const RemoveFavoriteLoaded(this.removeFavorite);
+  @override
+  List<Object> get props => [removeFavorite];
+}
+
+// // final class EmptyList  extends FavoriteState {
+//   final ProductInfoModel removeFavorite;
+
+//   const RemoveFavoriteLoaded(this.removeFavorite);
+//   @override
+//   List<Object> get props => [removeFavorite];
+// }

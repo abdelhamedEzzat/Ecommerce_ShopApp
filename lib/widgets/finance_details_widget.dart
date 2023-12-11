@@ -1,3 +1,5 @@
+import 'package:ecommerce_shop_app/model/product_model.dart';
+import 'package:ecommerce_shop_app/screens/payment_getway_screen/paymet_getway_screen.dart';
 import 'package:ecommerce_shop_app/widgets/button_widget.dart';
 import 'package:ecommerce_shop_app/widgets/finance_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,9 @@ import '../cubits/counter_cubit/counter_cubit.dart';
 class FinanceDetailsWidget extends StatelessWidget {
   const FinanceDetailsWidget({
     super.key,
+    required this.productInfoModel,
   });
-
+  final ProductInfoModel productInfoModel;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -80,9 +83,18 @@ class FinanceDetailsWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              ButtonWidget(
-                nameOfBotton: "Continue to Checkout",
-                onPress: () {},
+              BlocBuilder<CounterCubit, CounterState>(
+                builder: (context, state) {
+                  return ButtonWidget(
+                    nameOfBotton: "Continue to Checkout",
+                    onPress: () {
+                      Navigator.pushNamed(
+                        context, PaymentGetwayScreen.routeName,
+                        //arguments: productInfoModel
+                      );
+                    },
+                  );
+                },
               )
             ],
           )
