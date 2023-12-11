@@ -83,13 +83,12 @@ class _LocationScreenState extends State<LocationScreen> {
               const SizedBox(height: 8),
               Text(markerAddress,
                   style: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.bold)),
+                      fontSize: 12, fontWeight: FontWeight.bold)),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  // Add your save logic here
                   print('Location saved!');
-                  Navigator.pop(context); // Close the bottom sheet
+                  Navigator.pop(context);
                 },
                 child: const Text('Save'),
               ),
