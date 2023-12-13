@@ -1,4 +1,4 @@
-![Screenshot_17DS02431469](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/3df374c3-c90a-4954-92fc-07d6bf29a972)# ecommerce_shop_app
+# ecommerce_shop_app
 
 A new Flutter project.
 
@@ -25,4 +25,4 @@ samples, guidance on mobile development, and a full API reference.
 
  - A confirmation message will be sent to verify the validity of the phone number
 
-![Screenshot_1702431469](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/5014880c-06ce-4d79-ae59-18ab7c1653dc)
+![Screenshot_17DS02431469](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/3df374c3-c90a-4954-92fc-07d6bf29a972)
