@@ -32,7 +32,7 @@ class PersonalInformationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Welcome to your own store",
+                  "Welcome to Your Own Store",
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(

@@ -29,11 +29,11 @@ class FinanceDetailsWidget extends StatelessWidget {
             textAlign: TextAlign.left,
             enabled: false,
             decoration: InputDecoration(
-                hintText: "     Soon * ",
+                hintText: "   Enter Your Coupon ",
                 hintStyle: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .copyWith(color: Colors.red),
+                    .copyWith(color: Colors.grey),
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -41,62 +41,66 @@ class FinanceDetailsWidget extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              FinanceWidget(
-                financeName: "Subtotal:",
-                financeNumber:
-                    " ${BlocProvider.of<CounterCubit>(context).subTotal} ",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              FinanceWidget(
-                financeName: "DeliveryFee:",
-                financeNumber:
-                    "  ${BlocProvider.of<CounterCubit>(context).deliveryFee} ",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              FinanceWidget(
-                financeName: "Discount:",
-                financeNumber:
-                    " ${BlocProvider.of<CounterCubit>(context).discount} ",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: CustomPaint(
-                  size: Size(MediaQuery.of(context).size.width, 1),
+          BlocBuilder<CounterCubit, CounterState>(
+            builder: (context, state) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  FinanceWidget(
+                    financeName: "Subtotal:",
+                    financeNumber:
+                        " ${BlocProvider.of<CounterCubit>(context).subTotal} ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  FinanceWidget(
+                    financeName: "DeliveryFee:",
+                    financeNumber:
+                        "  ${BlocProvider.of<CounterCubit>(context).deliveryFee} ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  FinanceWidget(
+                    financeName: "Discount:",
+                    financeNumber:
+                        " ${BlocProvider.of<CounterCubit>(context).discount} ",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: CustomPaint(
+                      size: Size(MediaQuery.of(context).size.width, 1),
 
-                  // Adjust the size as needed
-                  // Custom painter
+                      // Adjust the size as needed
+                      // Custom painter
 
-                  painter: DashedLinePainter(),
-                ),
-              ),
-              FinanceWidget(
-                financeName: "Total:",
-                financeNumber:
-                    "${BlocProvider.of<CounterCubit>(context).total}",
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.primaryContainer),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              BlocBuilder<CounterCubit, CounterState>(
-                builder: (context, state) {
-                  return ButtonWidget(
-                    nameOfBotton: "Continue to Checkout",
-                    onPress: () {
-                      Navigator.pushNamed(
-                        context, PaymentGetwayScreen.routeName,
-                        //arguments: productInfoModel
+                      painter: DashedLinePainter(),
+                    ),
+                  ),
+                  FinanceWidget(
+                    financeName: "Total:",
+                    financeNumber:
+                        "${BlocProvider.of<CounterCubit>(context).total}",
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: Theme.of(context).colorScheme.primaryContainer),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  BlocBuilder<CounterCubit, CounterState>(
+                    builder: (context, state) {
+                      return ButtonWidget(
+                        nameOfBotton: "Continue to Checkout",
+                        onPress: () {
+                          Navigator.pushNamed(
+                            context,
+                            PaymentGetwayScreen.routeName,
+                          );
+                        },
                       );
                     },
-                  );
-                },
-              )
-            ],
+                  )
+                ],
+              );
+            },
           )
         ],
       ),

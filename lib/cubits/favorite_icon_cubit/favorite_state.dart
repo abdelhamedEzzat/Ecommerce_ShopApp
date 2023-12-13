@@ -30,11 +30,3 @@ final class RemoveFavoriteLoaded extends FavoriteState {
   @override
   List<Object> get props => [removeFavorite];
 }
-
-// // final class EmptyList  extends FavoriteState {
-//   final ProductInfoModel removeFavorite;
-
-//   const RemoveFavoriteLoaded(this.removeFavorite);
-//   @override
-//   List<Object> get props => [removeFavorite];
-// }

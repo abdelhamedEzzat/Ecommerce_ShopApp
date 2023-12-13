@@ -1,6 +1,8 @@
-import 'package:ecommerce_shop_app/model/product_model.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:ecommerce_shop_app/model/product_model.dart';
 
 part 'counter_state.dart';
 
@@ -97,15 +99,24 @@ class CounterCubit extends Cubit<CounterState> {
           .toSet());
     }
 
-    emit(PriceList(selectedProducts));
+    emit(AddProductToCardLoaded(selectedProducts));
   }
 
-  finance() {
+  deleteItemInBag(ProductInfoModel productInfoModel) {
+    if (selectedProducts.contains(productInfoModel)) {
+      selectedProducts.remove(productInfoModel);
+
+      emit(DeleteProductFromCardLoaded(selectedProducts));
+    }
+  }
+
+  finance(ProductInfoModel productInfoModel) {
     try {
       subTotal = selectedProducts.fold(
         initial,
         (previousValue, element) {
-          double productPrice = double.tryParse(element.priceProduct) ?? 0.0;
+          double productPrice = double.tryParse(element.priceProduct) ??
+              double.parse(productInfoModel.price);
           return previousValue + productPrice;
         },
       );
@@ -113,6 +124,7 @@ class CounterCubit extends Cubit<CounterState> {
       emit(Finance(subTotal));
     } catch (e) {
       print("Error calculating finance: $e");
+      emit(Error("error in  finance ${e.toString()}"));
     }
   }
 
@@ -133,7 +145,19 @@ class CounterCubit extends Cubit<CounterState> {
     total = productInfoModel.total;
     emit(Finance(total));
   }
+
+  bagNumber() {
+    if (selectedProducts.isEmpty) {
+      return null;
+    } else if (selectedProducts.isNotEmpty) {
+      return selectedProducts.length;
+    }
+  }
 }
+
+
+
+
 // favoriteProducts.addAll(prouduct
 //           .where(
 //             (element) => element.id == indexOfProduct,

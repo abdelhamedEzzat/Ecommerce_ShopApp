@@ -43,10 +43,19 @@ final class CounterdecrementPrice extends CounterState {
   List<Object> get props => [finaldecrementProduct];
 }
 
-final class PriceList extends CounterState {
+final class AddProductToCardLoaded extends CounterState {
   final Set<ProductInfoModel> product;
 
-  const PriceList(this.product);
+  const AddProductToCardLoaded(this.product);
+
+  @override
+  List<Object> get props => [product];
+}
+
+final class DeleteProductFromCardLoaded extends CounterState {
+  final Set<ProductInfoModel> product;
+
+  const DeleteProductFromCardLoaded(this.product);
 
   @override
   List<Object> get props => [product];
@@ -59,4 +68,13 @@ final class Finance extends CounterState {
 
   @override
   List<Object> get props => [totalPriceOfProduct];
+}
+
+final class Error extends CounterState {
+  final String error;
+
+  const Error(this.error);
+
+  @override
+  List<Object> get props => [error];
 }

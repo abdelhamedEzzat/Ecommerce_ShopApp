@@ -88,15 +88,15 @@ class OtpScreen extends StatelessWidget {
           fieldHeight: 50,
           fieldWidth: 40,
           borderWidth: 1,
-          activeColor: Theme.of(context).colorScheme.primary,
-          inactiveColor: Theme.of(context).colorScheme.primary,
+          activeColor: Colors.white,
+          inactiveColor: Colors.black,
           inactiveFillColor: Colors.white,
-          activeFillColor: Theme.of(context).colorScheme.primary,
-          selectedColor: Theme.of(context).colorScheme.primary,
+          activeFillColor: Colors.white,
+          selectedColor: Colors.black,
           selectedFillColor: Colors.white,
         ),
         animationDuration: Duration(milliseconds: 300),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         enableActiveFill: true,
         onCompleted: (submitedCode) {
           otpCode = submitedCode;
@@ -173,23 +173,27 @@ class OtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 88),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildIntroTexts(),
-                const SizedBox(
-                  height: 88,
-                ),
-                _buildPinCodeFields(context),
-                const SizedBox(
-                  height: 60,
-                ),
-                _buildVrifyButton(context),
-                _buildPhoneVerificationBloc(),
-              ],
+      body: Container(
+        height: double.infinity,
+        color: Theme.of(context).colorScheme.primaryContainer,
+        child: SafeArea(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 88),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _buildIntroTexts(),
+                  const SizedBox(
+                    height: 88,
+                  ),
+                  _buildPinCodeFields(context),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  _buildVrifyButton(context),
+                  _buildPhoneVerificationBloc(),
+                ],
+              ),
             ),
           ),
         ),

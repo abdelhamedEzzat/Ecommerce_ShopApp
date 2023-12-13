@@ -154,23 +154,29 @@ class PriceWidget extends StatelessWidget {
   final ProductInfoModel productInfo;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 21),
-      margin: EdgeInsets.only(
-          bottom: 10.h, right: MediaQuery.of(context).size.width / AppSize.s12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            "\$",
-            style: Theme.of(context).textTheme.titleMedium,
+    return BlocBuilder<CounterCubit, CounterState>(
+      builder: (context, state) {
+        return Container(
+          padding:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width / 21),
+          margin: EdgeInsets.only(
+              bottom: 10.h,
+              right: MediaQuery.of(context).size.width / AppSize.s12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "\$",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Text(
+                productInfo.price,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ],
           ),
-          Text(
-            productInfo.price.toString(),
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -189,7 +195,14 @@ class IconButtonWidget extends StatelessWidget {
       child: BlocBuilder<CounterCubit, CounterState>(
         builder: (context, state) {
           return IconButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<CounterCubit>(context)
+                    .addItemToBag(productInfo);
+                BlocProvider.of<CounterCubit>(context).finance(productInfo);
+                BlocProvider.of<CounterCubit>(context).financeDeliveryFee();
+                BlocProvider.of<CounterCubit>(context)
+                    .totalFinance(productInfo);
+              },
               icon: Image.asset(
                 AssetsImages.addIcon,
               ));

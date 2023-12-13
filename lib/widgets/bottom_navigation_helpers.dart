@@ -59,8 +59,8 @@ Widget bottomNavigationBar(BottomNavigationBarCubit cubit, BuildContext context,
               icon: Icon(Icons.favorite), label: "Favorite"),
           BottomNavigationBarItem(
               icon: Icon(Icons.location_on), label: "Location"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: "Person Info")
+          // BottomNavigationBarItem(
+          //     icon: Icon(Icons.person), label: "Person Info")
         ],
         onTap: (int index) {
           cubit.changeIndex(index);

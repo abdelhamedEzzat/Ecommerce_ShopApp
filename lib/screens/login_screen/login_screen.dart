@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/cubits/phone_auth/phone_auth_cubit.dart';
 import 'package:ecommerce_shop_app/screens/login_screen/otp_screen.dart';
@@ -24,7 +22,50 @@ class _LoginScreenState extends State<LoginScreen> {
   late String phoneNumber;
   final GlobalKey<FormState> _phoneFormKey = GlobalKey();
 
-//
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(
+          height: double.infinity,
+          color: Theme.of(context).colorScheme.primary,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Form(
+                key: _phoneFormKey,
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 88),
+                  child: Expanded(
+                    flex: 3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildLogo(),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        _buildIntroTexts(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _buildPhoneFormField(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        _buildNextButton(context),
+                        _buildPhoneNumberSubmitedBloc(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ));
+  }
+
+  //
 //
 //
 //
@@ -36,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: Theme.of(context).colorScheme.primary,
       ),
       child: Image.asset(AssetsImages.logoImage),
     );
@@ -49,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
         const Text(
           'What is your phone number?',
           style: TextStyle(
-              color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
+              color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 30,
@@ -59,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: const Text(
             'Please enter yout phone number to verify your account.',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 18,
             ),
           ),
@@ -81,7 +122,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             child: Text(
               '${generateCountryFlag()} +20',
-              style: const TextStyle(fontSize: 18, letterSpacing: 2.0),
+              style: const TextStyle(
+                  fontSize: 18, letterSpacing: 2.0, color: Colors.white),
             ),
           ),
         ),
@@ -101,11 +143,12 @@ class _LoginScreenState extends State<LoginScreen> {
             child: TextFormField(
               autofocus: true,
               style: const TextStyle(
+                color: Colors.white,
                 fontSize: 18,
                 letterSpacing: 2.0,
               ),
               decoration: const InputDecoration(border: InputBorder.none),
-              cursorColor: Colors.black,
+              cursorColor: Colors.white,
               keyboardType: TextInputType.phone,
               validator: (value) {
                 if (value!.isEmpty) {
@@ -226,67 +269,4 @@ class _LoginScreenState extends State<LoginScreen> {
   //
   //
   //
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-            child: SingleChildScrollView(
-          child: Form(
-            key: _phoneFormKey,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 32, vertical: 88),
-              child: Expanded(
-                flex: 3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildLogo(),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    _buildIntroTexts(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _buildPhoneFormField(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _buildNextButton(context),
-                    _buildPhoneNumberSubmitedBloc(),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )));
-  }
 }
-// class LoginScreen extends StatelessWidget {
-//   LoginScreen({Key? key}) : super(key: key);
-  
-
-//  
-
- 
-
-
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//           appBar: AppBar(),
-//           backgroundColor: Colors.white,
-//           body: Container(
-//             width: double.infinity,
-//             height: double.infinity,
-//             color: Colors.amber,
-//             child:
-//                 Text('sdassssssssssssssssssssssssssssssssssssssssssssssssss'),
-//           )
-          
-       
-//   }
-// }

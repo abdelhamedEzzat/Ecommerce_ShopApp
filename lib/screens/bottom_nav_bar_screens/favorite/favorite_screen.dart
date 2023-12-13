@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:ecommerce_shop_app/cubits/favorite_icon_cubit/favorite_cubit.dart';
 import 'package:ecommerce_shop_app/widgets/build_category_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
@@ -23,7 +22,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: Text(
           "Favorite Screen",
         ),
@@ -120,6 +119,31 @@ class FavoriteScreen extends StatelessWidget {
                 ),
               );
             }
+          } else if (state is FavoriteInitial) {
+            return SizedBox(
+              height: MediaQuery.of(context).size.height / 1.2,
+              width: MediaQuery.of(context).size.width,
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.favorite_border,
+                    // You can use any appropriate icon
+                    size: 80.0,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "No favorite items yet",
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            );
           } else {
             return SizedBox(
               height: MediaQuery.of(context).size.height / 1.2,
@@ -132,9 +156,3 @@ class FavoriteScreen extends StatelessWidget {
     );
   }
 }
- ///  ProductInfoModel productInfoModel 
-//                   =
-//                       favoriteCubit.favoriteProducts[index];
-//                   favoriteCubit.removefavoriteItems(productInfoModel);
-//                     ProductInfoModel productInfoModel =
-//                       favoriteCubit.favoriteProducts[index];

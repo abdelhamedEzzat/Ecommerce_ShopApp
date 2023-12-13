@@ -1,9 +1,9 @@
 // ignore_for_file: unrelated_type_equality_checks
 
-import 'package:ecommerce_shop_app/config/images_manger.dart';
 import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/model/product_model.dart';
 import 'package:ecommerce_shop_app/config/constant.dart';
+import 'package:ecommerce_shop_app/widgets/Bag_icon_in_appbar_widget.dart';
 import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:ecommerce_shop_app/widgets/product_details_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,12 +32,10 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        icon: Stack(
-          children: [
-            Image.asset(AssetsImages.bagIcons),
-          ],
+        icon: BagIconChangedWithNumberOfProduct(
+          productInfoModel: products,
         ),
-        title: const Text("ProductDetails"),
+        title: Text("ProductDetails"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -132,7 +130,8 @@ class ProductInformation extends StatelessWidget {
 
                 BlocProvider.of<CounterCubit>(context)
                     .addItemToBag(productinformation);
-                BlocProvider.of<CounterCubit>(context).finance();
+                BlocProvider.of<CounterCubit>(context)
+                    .finance(productinformation);
                 BlocProvider.of<CounterCubit>(context).financeDeliveryFee();
                 BlocProvider.of<CounterCubit>(context)
                     .totalFinance(productinformation);

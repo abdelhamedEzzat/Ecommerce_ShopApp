@@ -17,6 +17,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
+  final int index = 0;
   const HomeView({
     super.key,
   });
@@ -37,9 +38,14 @@ class HomeView extends StatelessWidget {
               // Navigate to the home screen in the bottom navigation bar
               cubit.changeIndex(0);
               return true;
+            } else {
+              otherScreensNavigatorKey.currentState!.pop();
+              int currentindex = cubit.pages.indexOf(
+                  otherScreensNavigatorKey.currentState!.widget.initialRoute!);
+              cubit.changeIndex(currentindex);
+
+              return false;
             }
-            otherScreensNavigatorKey.currentState!.pop();
-            return false;
           },
           child: Scaffold(
               backgroundColor: ColorMangers.backGroundColor,

@@ -1,3 +1,4 @@
+import 'package:ecommerce_shop_app/widgets/coustom_appbar.dart';
 import 'package:flutter/material.dart';
 
 class PersonalScreen extends StatelessWidget {
@@ -13,6 +14,12 @@ class PersonalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: CustomAppBar(
+          title: Text("fasfasd"),
+          icon: Icon(
+            Icons.abc,
+          )),
+    );
   }
 }

@@ -1,11 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:ecommerce_shop_app/cubits/counter_cubit/counter_cubit.dart';
 import 'package:ecommerce_shop_app/data/repo/stripe_repo.dart';
-import 'package:ecommerce_shop_app/data/web_servies/stripe_web_servies.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:path/path.dart';
 
 part 'stripe_payment_getway_state.dart';
 

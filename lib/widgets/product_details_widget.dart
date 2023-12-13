@@ -41,23 +41,20 @@ class TitleAndFavoriteIcons extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 height: 50.h,
                 child: GestureDetector(
-                    // onSecondaryTap: () {
-                    //   BlocProvider.of<CounterCubit>(context).favorite = false;
-                    // },
                     onTap: () {
                       if (productinformation.favorite == false) {
                         BlocProvider.of<FavoriteCubit>(context)
                             .addfavoriteItems(productinformation);
-                        print(productinformation.favorite);
-                        print(BlocProvider.of<FavoriteCubit>(context)
-                            .favoriteProducts
-                            .length);
+                        // print(productinformation.favorite);
+                        // print(BlocProvider.of<FavoriteCubit>(context)
+                        //     .favoriteProducts
+                        //     .length);
                       } else if (productinformation.favorite == true) {
                         BlocProvider.of<FavoriteCubit>(context)
                             .removefavoriteItems(productinformation);
-                        print(productinformation.favorite);
-                        print(
-                            "ssssssssssssssssssssss${BlocProvider.of<FavoriteCubit>(context).favoriteProducts.length}");
+                        // print(productinformation.favorite);
+                        // print(
+                        //     "ssssssssssssssssssssss${BlocProvider.of<FavoriteCubit>(context).favoriteProducts.length}");
                       }
                     },
                     child: productinformation.favorite == false

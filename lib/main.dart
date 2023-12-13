@@ -16,7 +16,10 @@ import 'package:ecommerce_shop_app/data/repo/current_location_repo.dart';
 import 'package:ecommerce_shop_app/data/repo/places_maps_repostory.dart';
 import 'package:ecommerce_shop_app/data/repo/stripe_repo.dart';
 import 'package:ecommerce_shop_app/data/web_servies/google_web_servises.dart';
-import 'package:ecommerce_shop_app/screens/main_%20home_view/home_view.dart';
+import 'package:ecommerce_shop_app/screens/login_screen/login_screen.dart';
+import 'package:ecommerce_shop_app/screens/login_screen/otp_screen.dart';
+import 'package:ecommerce_shop_app/screens/personal_Information/personal_information.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -93,7 +96,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: theme(),
               onGenerateRoute: AppRouter.onGeneratedRoute,
-              initialRoute: HomeView.routeName);
+              initialRoute: PersonalInformationScreen.routeName);
         },
       ),
     );
