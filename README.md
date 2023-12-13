@@ -35,10 +35,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ![Screenshot_1702431722](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/84616094-4efb-4bc5-bceb-abd37b59481c)
 
-![Screenshot_1702431805](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/41437596-4efc-4e01-97cc-c2e50d9d9638)
-
-![Screenshot_1702431831](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/0ab07f01-f30e-41bc-9a41-935a7a76e69a)
-
 ![Screenshot_1702432054](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/d7dd11b2-adc7-4772-8869-3895f5180d69)
 
 ![Screenshot_1702432054](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/0dd65aa7-2bd5-4595-816c-11d31a018227)
@@ -49,4 +45,6 @@ samples, guidance on mobile development, and a full API reference.
 ![Screenshot_1702432162](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/da7c8388-5285-458e-b09f-60ab5aaba610)
 
 ![Screenshot_1702432206](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/6188dc44-f85a-47de-8742-2f23e7ff88dc)
+
+![Screenshot_1702431805](https://github.com/abdelhamedEzzat/Ecommerce_ShopApp/assets/133365686/41437596-4efc-4e01-97cc-c2e50d9d9638)
 
